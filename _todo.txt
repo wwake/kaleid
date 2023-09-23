@@ -1,11 +1,11 @@
 
-Fixed image
-Move
-rotate
-scale?
-rotate phone?
+* Fixed image
+* Move
+* rotate
+* scale?
+* rotate phone?
 
-Select photo
-3-d shapes
+* Select photo
+* 3-d shapes
 
 Kaleidoscope
