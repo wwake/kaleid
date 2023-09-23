@@ -17,6 +17,7 @@
 		919605622ABF6688004B2F3C /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 919605612ABF6688004B2F3C /* _todo.txt */; };
 		919605652ABF6696004B2F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 919605632ABF6696004B2F3C /* LICENSE */; };
 		919605662ABF6696004B2F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 919605642ABF6696004B2F3C /* README.md */; };
+		919605682ABF6D8F004B2F3C /* kaleid.key in Resources */ = {isa = PBXBuildFile; fileRef = 919605672ABF6D8F004B2F3C /* kaleid.key */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		919605612ABF6688004B2F3C /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		919605632ABF6696004B2F3C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		919605642ABF6696004B2F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		919605672ABF6D8F004B2F3C /* kaleid.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = kaleid.key; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +82,10 @@
 		913F2D162ABF65F900F15632 = {
 			isa = PBXGroup;
 			children = (
+				919605612ABF6688004B2F3C /* _todo.txt */,
+				919605672ABF6D8F004B2F3C /* kaleid.key */,
 				919605632ABF6696004B2F3C /* LICENSE */,
 				919605642ABF6696004B2F3C /* README.md */,
-				919605612ABF6688004B2F3C /* _todo.txt */,
 				913F2D212ABF65F900F15632 /* kaleid */,
 				913F2D322ABF65FA00F15632 /* kaleidTests */,
 				913F2D3C2ABF65FA00F15632 /* kaleidUITests */,
@@ -245,6 +248,7 @@
 				919605662ABF6696004B2F3C /* README.md in Resources */,
 				919605652ABF6696004B2F3C /* LICENSE in Resources */,
 				913F2D272ABF65FA00F15632 /* Assets.xcassets in Resources */,
+				919605682ABF6D8F004B2F3C /* kaleid.key in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
