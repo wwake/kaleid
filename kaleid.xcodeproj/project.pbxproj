@@ -14,6 +14,9 @@
 		913F2D342ABF65FA00F15632 /* kaleidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D332ABF65FA00F15632 /* kaleidTests.swift */; };
 		913F2D3E2ABF65FA00F15632 /* kaleidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */; };
 		913F2D402ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */; };
+		919605622ABF6688004B2F3C /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 919605612ABF6688004B2F3C /* _todo.txt */; };
+		919605652ABF6696004B2F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 919605632ABF6696004B2F3C /* LICENSE */; };
+		919605662ABF6696004B2F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 919605642ABF6696004B2F3C /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		913F2D392ABF65FA00F15632 /* kaleidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaleidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITests.swift; sourceTree = "<group>"; };
 		913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		919605612ABF6688004B2F3C /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
+		919605632ABF6696004B2F3C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		919605642ABF6696004B2F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,9 @@
 		913F2D162ABF65F900F15632 = {
 			isa = PBXGroup;
 			children = (
+				919605632ABF6696004B2F3C /* LICENSE */,
+				919605642ABF6696004B2F3C /* README.md */,
+				919605612ABF6688004B2F3C /* _todo.txt */,
 				913F2D212ABF65F900F15632 /* kaleid */,
 				913F2D322ABF65FA00F15632 /* kaleidTests */,
 				913F2D3C2ABF65FA00F15632 /* kaleidUITests */,
@@ -231,7 +240,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919605622ABF6688004B2F3C /* _todo.txt in Resources */,
 				913F2D2A2ABF65FA00F15632 /* Preview Assets.xcassets in Resources */,
+				919605662ABF6696004B2F3C /* README.md in Resources */,
+				919605652ABF6696004B2F3C /* LICENSE in Resources */,
 				913F2D272ABF65FA00F15632 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
