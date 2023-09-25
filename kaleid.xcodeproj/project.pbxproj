@@ -52,6 +52,7 @@
 		919605632ABF6696004B2F3C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		919605642ABF6696004B2F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		919605672ABF6D8F004B2F3C /* kaleid.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = kaleid.key; sourceTree = "<group>"; };
+		919605692AC2045D004B2F3C /* kaleid.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = kaleid.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +83,7 @@
 		913F2D162ABF65F900F15632 = {
 			isa = PBXGroup;
 			children = (
+				919605692AC2045D004B2F3C /* kaleid.xctestplan */,
 				919605612ABF6688004B2F3C /* _todo.txt */,
 				919605672ABF6D8F004B2F3C /* kaleid.key */,
 				919605632ABF6696004B2F3C /* LICENSE */,

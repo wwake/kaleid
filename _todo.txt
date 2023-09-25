@@ -1,11 +1,13 @@
 
+* Color
 * Fixed image
-* Move
 * rotate
+* Move
 * scale?
 * rotate phone?
 
 * Select photo
+* Live camera
 * 3-d shapes
 
 Kaleidoscope

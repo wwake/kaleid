@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "C73172D0-026B-4148-97AB-3CFAAE3FBC98",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:kaleid.xcodeproj",
+      "identifier" : "913F2D1E2ABF65F900F15632",
+      "name" : "kaleid"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:kaleid.xcodeproj",
+        "identifier" : "913F2D2E2ABF65FA00F15632",
+        "name" : "kaleidTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:kaleid.xcodeproj",
+        "identifier" : "913F2D382ABF65FA00F15632",
+        "name" : "kaleidUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
