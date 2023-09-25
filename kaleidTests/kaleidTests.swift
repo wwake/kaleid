@@ -1,10 +1,3 @@
-//
-//  kaleidTests.swift
-//  kaleidTests
-//
-//  Created by Bill Wake on 9/23/23.
-//
-
 import XCTest
 @testable import kaleid
 

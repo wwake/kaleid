@@ -1,10 +1,3 @@
-//
-//  kaleidUITestsLaunchTests.swift
-//  kaleidUITests
-//
-//  Created by Bill Wake on 9/23/23.
-//
-
 import XCTest
 
 final class kaleidUITestsLaunchTests: XCTestCase {

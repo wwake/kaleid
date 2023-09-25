@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  kaleid
-//
-//  Created by Bill Wake on 9/23/23.
-//
-
 import SwiftUI
 
 struct ContentView: View {
