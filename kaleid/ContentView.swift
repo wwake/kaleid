@@ -1,17 +1,70 @@
 import SwiftUI
 
+struct Pie: Shape {
+  let count: CGFloat
+  let angle: Angle
+
+  func path(in rect: CGRect) -> Path {
+    var path = Path()
+
+    let start = CGPoint(x: rect.minX, y: rect.minY)
+
+    path.move(to: start)
+    path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+    path.addArc(
+      center: start,
+      radius: rect.width,
+      startAngle: Angle.degrees(0),
+      endAngle: angle,
+      clockwise: false
+    )
+    path.closeSubpath()
+
+    return path
+      .applying(CGAffineTransform(scaleX: 1.0, y: -1.0))
+      .applying(CGAffineTransform(rotationAngle: -count * .pi/3.0))
+      .applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
+  }
+}
+
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+  var body: some View {
+    ZStack {
+      Image("demo")
+        .resizable()
+        .scaledToFit()
+        .scaleEffect(x: 1.5, y: 1.5)
+        .clipShape(Circle())
+        .offset(x: -180, y: -150)
+        .clipShape(Pie(count: 0, angle: .degrees(60)))
+//      Image("demo")
+//        .resizable()
+//        .scaledToFit()
+//    //    .scaleEffect(x: 1.5, y: 1.5)
+////        .clipShape(Circle())
+//        .offset(x: 150, y: 100)
+////        .clipShape(Pie(count: 0, angle: .degrees(60)))
+//        .scaleEffect(x: -1, y: -1)
+
+//      Pie(count: 0, angle: .degrees(60))
+////       // .intersection(Image("logo.png")
+//        .fill(.blue)
+//      Pie(count: 1, angle: .degrees(60))
+//        .fill(.red)
+//      Pie(count: 2, angle: .degrees(60))
+//        .fill(.blue)
+//      Pie(count: 3, angle: .degrees(60))
+//        .fill(.red)
+//      Pie(count: 4, angle: .degrees(60))
+//        .fill(.blue)
+//      Pie(count: 5, angle: .degrees(60))
+//        .fill(.red)
     }
+    .offset(x: 170, y: 300)
+    .padding()
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }

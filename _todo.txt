@@ -1,5 +1,4 @@
-
-* Color
+* Make kaleidoscope image
 * Fixed image
 * rotate
 * Move
@@ -11,3 +10,7 @@
 * 3-d shapes
 
 Kaleidoscope
+
+KAL-23-01: 9/25/23 - Introducing Kaleid
+* Get a pie-shaped piece of Color
+
