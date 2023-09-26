@@ -1,32 +1,5 @@
 import SwiftUI
 
-struct Pie: Shape {
-  let count: CGFloat
-  let angle: Angle
-
-  func path(in rect: CGRect) -> Path {
-    var path = Path()
-
-    let start = CGPoint(x: rect.minX, y: rect.minY)
-
-    path.move(to: start)
-    path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-    path.addArc(
-      center: start,
-      radius: rect.width,
-      startAngle: Angle.degrees(0),
-      endAngle: angle,
-      clockwise: false
-    )
-    path.closeSubpath()
-
-    return path
-      .applying(CGAffineTransform(scaleX: 1.0, y: -1.0))
-      .applying(CGAffineTransform(rotationAngle: -count * .pi/3.0))
-      .applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
-  }
-}
-
 struct ContentView: View {
   var body: some View {
     ZStack {

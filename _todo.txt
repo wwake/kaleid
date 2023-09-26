@@ -1,4 +1,4 @@
-* Make kaleidoscope image
+* Make kaleidoscope image - mirrored
 * Fixed image
 * rotate
 * Move
@@ -13,4 +13,5 @@ Kaleidoscope
 
 KAL-23-01: 9/25/23 - Introducing Kaleid
 * Get a pie-shaped piece of Color
+* Clipped a photo to pie shape but didn't get the whole pie
 

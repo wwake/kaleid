@@ -18,6 +18,7 @@
 		919605652ABF6696004B2F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 919605632ABF6696004B2F3C /* LICENSE */; };
 		919605662ABF6696004B2F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 919605642ABF6696004B2F3C /* README.md */; };
 		919605682ABF6D8F004B2F3C /* kaleid.key in Resources */ = {isa = PBXBuildFile; fileRef = 919605672ABF6D8F004B2F3C /* kaleid.key */; };
+		9196056D2AC35464004B2F3C /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196056C2AC35464004B2F3C /* Pie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		919605642ABF6696004B2F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		919605672ABF6D8F004B2F3C /* kaleid.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = kaleid.key; sourceTree = "<group>"; };
 		919605692AC2045D004B2F3C /* kaleid.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = kaleid.xctestplan; sourceTree = "<group>"; };
+		9196056C2AC35464004B2F3C /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				913F2D242ABF65F900F15632 /* ContentView.swift */,
 				913F2D262ABF65FA00F15632 /* Assets.xcassets */,
 				913F2D282ABF65FA00F15632 /* Preview Content */,
+				9196056C2AC35464004B2F3C /* Pie.swift */,
 			);
 			path = kaleid;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9196056D2AC35464004B2F3C /* Pie.swift in Sources */,
 				913F2D252ABF65F900F15632 /* ContentView.swift in Sources */,
 				913F2D232ABF65F900F15632 /* kaleidApp.swift in Sources */,
 			);
