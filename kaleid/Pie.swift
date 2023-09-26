@@ -4,7 +4,6 @@ struct Pie: Shape {
   let count: CGFloat
 
   func path(in rect: CGRect) -> Path {
-    print("Pie: \(rect)")
     let minDimension = min(rect.width, rect.height)
 
     let center = CGPoint(x: rect.midX, y: rect.midY)
