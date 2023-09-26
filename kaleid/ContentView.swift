@@ -5,11 +5,11 @@ struct ContentView: View {
     ZStack {
       Image("demo")
         .resizable()
-        .scaledToFit()
+        .clipShape(Pie(count: 6))
   //      .scaleEffect(x: 1.5, y: 1.5)
   //      .clipShape(Circle())
   //      .offset(x: -180, y: -150)
- //       .clipShape(Pie(count: 0, angle: .degrees(60)))
+  //      .clipShape(Pie(count: 6))
 //      Image("demo")
 //        .resizable()
 //        .scaledToFit()

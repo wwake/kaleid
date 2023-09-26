@@ -4,6 +4,7 @@ struct Pie: Shape {
   let count: CGFloat
 
   func path(in rect: CGRect) -> Path {
+    print("Pie: \(rect)")
     let minDimension = min(rect.width, rect.height)
 
     let center = CGPoint(x: rect.midX, y: rect.midY)
@@ -24,11 +25,11 @@ struct Pie: Shape {
 
     return path
       .applying(CGAffineTransform(scaleX: 1.0, y: -1.0))
+      .applying(CGAffineTransform(translationX: 0.0, y: rect.height))
   }
 }
 
 #Preview {
   Pie(count: 6)
     .stroke(Color.green)
-    .offset(x: 0, y: 800)
 }
