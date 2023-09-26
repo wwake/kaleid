@@ -6,10 +6,10 @@ struct ContentView: View {
       Image("demo")
         .resizable()
         .scaledToFit()
-        .scaleEffect(x: 1.5, y: 1.5)
-        .clipShape(Circle())
-        .offset(x: -180, y: -150)
-        .clipShape(Pie(count: 0, angle: .degrees(60)))
+  //      .scaleEffect(x: 1.5, y: 1.5)
+  //      .clipShape(Circle())
+  //      .offset(x: -180, y: -150)
+ //       .clipShape(Pie(count: 0, angle: .degrees(60)))
 //      Image("demo")
 //        .resizable()
 //        .scaledToFit()
@@ -33,7 +33,7 @@ struct ContentView: View {
 //      Pie(count: 5, angle: .degrees(60))
 //        .fill(.red)
     }
-    .offset(x: 170, y: 300)
+   // .offset(x: 170, y: 300)
     .padding()
   }
 }
