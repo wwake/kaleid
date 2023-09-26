@@ -1,25 +1,45 @@
 import SwiftUI
 
-struct ContentView: View {
+struct KaleidView<Content: View>: View {
+  let count: CGFloat
+  let content: Content
+
+  init(count: CGFloat, @ViewBuilder _ content: () -> Content) {
+    self.count = count
+    self.content = content()
+  }
+
   var body: some View {
     ZStack {
       MirroredView {
-        Image("demo")
-          .resizable()
-          .clipShape(Pie(count: 6))
+        content
+          .clipShape(Pie(count: count))
       }
+
       MirroredView {
-        Image("demo")
-          .resizable()
-          .clipShape(Pie(count: 6))
+        content
+          .clipShape(Pie(count: count))
       }
-      .rotationEffect(.degrees(240), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+      .rotationEffect(.degrees(360.0 / count * 2.0), anchor: .center)
+
       MirroredView {
-        Image("demo")
-          .resizable()
-          .clipShape(Pie(count: 6))
+        content
+          .clipShape(Pie(count: count))
       }
-      .rotationEffect(.degrees(120), anchor: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+      .rotationEffect(.degrees(360.0 / count * 2.0 * 2.0), anchor: .center)
+    }
+  }
+}
+
+struct ContentView: View {
+  let xOffset = CGFloat(75)
+  let yOffset = CGFloat(-20)
+
+  var body: some View {
+    KaleidView(count: 6) {
+      Image("demo")
+        .resizable()
+        .offset(x: xOffset, y: yOffset)
     }
     .padding()
   }
