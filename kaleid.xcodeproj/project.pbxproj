@@ -11,7 +11,6 @@
 		913F2D252ABF65F900F15632 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D242ABF65F900F15632 /* ContentView.swift */; };
 		913F2D272ABF65FA00F15632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913F2D262ABF65FA00F15632 /* Assets.xcassets */; };
 		913F2D2A2ABF65FA00F15632 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913F2D292ABF65FA00F15632 /* Preview Assets.xcassets */; };
-		913F2D342ABF65FA00F15632 /* kaleidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D332ABF65FA00F15632 /* kaleidTests.swift */; };
 		913F2D3E2ABF65FA00F15632 /* kaleidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */; };
 		913F2D402ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */; };
 		919605622ABF6688004B2F3C /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 919605612ABF6688004B2F3C /* _todo.txt */; };
@@ -21,6 +20,7 @@
 		9196056D2AC35464004B2F3C /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196056C2AC35464004B2F3C /* Pie.swift */; };
 		9196056F2AC35FBE004B2F3C /* MirroredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196056E2AC35FBE004B2F3C /* MirroredView.swift */; };
 		919605712AC36949004B2F3C /* KaleidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605702AC36949004B2F3C /* KaleidView.swift */; };
+		919605732AC4BAD4004B2F3C /* RotationToPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,6 @@
 		913F2D262ABF65FA00F15632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		913F2D292ABF65FA00F15632 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		913F2D2F2ABF65FA00F15632 /* kaleidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaleidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		913F2D332ABF65FA00F15632 /* kaleidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidTests.swift; sourceTree = "<group>"; };
 		913F2D392ABF65FA00F15632 /* kaleidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaleidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITests.swift; sourceTree = "<group>"; };
 		913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		9196056C2AC35464004B2F3C /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		9196056E2AC35FBE004B2F3C /* MirroredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroredView.swift; sourceTree = "<group>"; };
 		919605702AC36949004B2F3C /* KaleidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaleidView.swift; sourceTree = "<group>"; };
+		919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationToPositionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		913F2D322ABF65FA00F15632 /* kaleidTests */ = {
 			isa = PBXGroup;
 			children = (
-				913F2D332ABF65FA00F15632 /* kaleidTests.swift */,
+				919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */,
 			);
 			path = kaleidTests;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				913F2D342ABF65FA00F15632 /* kaleidTests.swift in Sources */,
+				919605732AC4BAD4004B2F3C /* RotationToPositionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,15 +21,35 @@ struct ContentView: View {
       }
   }
 
-  var body: some View {
-    GeometryReader {geometry in
+  func angleToX(_ angle: Angle, _ size: CGSize) -> CGFloat {
+    var workingAngle = angle.radians
 
+    while (workingAngle < -.pi) {
+      workingAngle += 2 * .pi
+    }
+
+    while (workingAngle > .pi) {
+      workingAngle -= 2 * .pi
+    }
+
+    return size.width * (workingAngle / (2 * .pi)) + size.width / 2
+  }
+
+  func angleToY(_ angle: Angle, _ size: CGSize) -> CGFloat {
+    size.height * sin(10 * angle.radians) / 4.0
+  }
+
+  var body: some View {
+    GeometryReader { geometry in
       KaleidView(count: 6) {
         Image("demo")
           .resizable()
-          .offset(x: location.x, y: location.y)
+          .offset(
+            x: angleToX(angle, geometry.size),
+            y: angleToY(angle, geometry.size)
+          )
       }
-      .rotationEffect(angle)
+ //     .rotationEffect(angle)
 
       .gesture(moveFocus)
       .gesture(rotation)
