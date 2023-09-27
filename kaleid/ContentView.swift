@@ -11,16 +11,6 @@ struct ContentView: View {
       }
   }
 
-  var moveFocus: some Gesture {
-    DragGesture()
-      .onChanged { value in
-        self.location = CGPoint(
-          x: value.location.x / 2.0,
-          y: value.location.y / 4.0
-        )
-      }
-  }
-
   func angleToX(_ angle: Angle, _ size: CGSize) -> CGFloat {
     var workingAngle = angle.radians
 
@@ -35,8 +25,8 @@ struct ContentView: View {
     return size.width * (workingAngle / (2 * .pi)) + size.width / 2
   }
 
-  func angleToY(_ angle: Angle, _ size: CGSize) -> CGFloat {
-    size.height * sin(10 * angle.radians) / 4.0
+  func angleToY(_ angle: Angle, _ size: CGSize, repeats: Int) -> CGFloat {
+    (size.width / 2) * (1 + sin(Double(repeats) * angle.radians))
   }
 
   var body: some View {
@@ -46,12 +36,9 @@ struct ContentView: View {
           .resizable()
           .offset(
             x: angleToX(angle, geometry.size),
-            y: angleToY(angle, geometry.size)
+            y: angleToY(angle, geometry.size, repeats: 64)
           )
       }
- //     .rotationEffect(angle)
-
-      .gesture(moveFocus)
       .gesture(rotation)
     }
   }

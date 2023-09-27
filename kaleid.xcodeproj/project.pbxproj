@@ -20,7 +20,7 @@
 		9196056D2AC35464004B2F3C /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196056C2AC35464004B2F3C /* Pie.swift */; };
 		9196056F2AC35FBE004B2F3C /* MirroredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196056E2AC35FBE004B2F3C /* MirroredView.swift */; };
 		919605712AC36949004B2F3C /* KaleidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605702AC36949004B2F3C /* KaleidView.swift */; };
-		919605732AC4BAD4004B2F3C /* RotationToPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */; };
+		919605732AC4BAD4004B2F3C /* AngleToXYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* AngleToXYTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,7 @@
 		9196056C2AC35464004B2F3C /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		9196056E2AC35FBE004B2F3C /* MirroredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirroredView.swift; sourceTree = "<group>"; };
 		919605702AC36949004B2F3C /* KaleidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaleidView.swift; sourceTree = "<group>"; };
-		919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationToPositionTests.swift; sourceTree = "<group>"; };
+		919605722AC4BAD4004B2F3C /* AngleToXYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngleToXYTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,7 @@
 		913F2D322ABF65FA00F15632 /* kaleidTests */ = {
 			isa = PBXGroup;
 			children = (
-				919605722AC4BAD4004B2F3C /* RotationToPositionTests.swift */,
+				919605722AC4BAD4004B2F3C /* AngleToXYTests.swift */,
 			);
 			path = kaleidTests;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919605732AC4BAD4004B2F3C /* RotationToPositionTests.swift in Sources */,
+				919605732AC4BAD4004B2F3C /* AngleToXYTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

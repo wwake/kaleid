@@ -1,4 +1,6 @@
-* rotate
+
+* Map rotation angle to a combination of x and y
+* rotate maps to selecting a new center for the drawing
 * scale?
 * Adjust pie calculations to avoid affine transformations
 * rotate phone?
@@ -11,6 +13,8 @@ Kaleidoscope
 
 KAL-23-03: 9/27/23 - Motion
 * Move - add a drag gesture that relocates the point of interest
+* Explored drag, rotate, and scale gestures
+* Started mapping rotation to x/y
 
 KAL-23-02: 9/26/23 - Mirroring
 * Make kaleidoscope image - mirrored
