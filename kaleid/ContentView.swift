@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  let xOffset = CGFloat(106)
+  let xOffset = CGFloat(100)
   let yOffset = CGFloat(-20)
 
   var body: some View {

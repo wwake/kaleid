@@ -1,4 +1,5 @@
 * Move - add a gesture
+* Adjust pie calculations to avoid affine transformations
 * rotate
 * scale?
 * rotate phone?
