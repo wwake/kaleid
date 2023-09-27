@@ -1,7 +1,6 @@
-* Move - add a gesture
-* Adjust pie calculations to avoid affine transformations
 * rotate
 * scale?
+* Adjust pie calculations to avoid affine transformations
 * rotate phone?
 
 * Select photo
@@ -9,6 +8,9 @@
 * 3-d shapes
 
 Kaleidoscope
+
+KAL-23-03: 9/27/23 - Motion
+* Move - add a drag gesture that relocates the point of interest
 
 KAL-23-02: 9/26/23 - Mirroring
 * Make kaleidoscope image - mirrored
