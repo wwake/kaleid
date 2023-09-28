@@ -1,6 +1,5 @@
 
 * Map rotation angle to a combination of x and y
-* rotate maps to selecting a new center for the drawing
 * scale?
 * Adjust pie calculations to avoid affine transformations
 * rotate phone?
