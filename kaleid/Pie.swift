@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct Pie: Shape {
-  let count: CGFloat
+  let count: Int
 
   func path(in rect: CGRect) -> Path {
     let minDimension = min(rect.width, rect.height)
     let center = CGPoint(x: rect.midX, y: rect.midY)
 
-    let angle = 2 * .pi / count
+    let angle = 2 * .pi / CGFloat(count)
 
     var path = Path()
     path.move(to: center)

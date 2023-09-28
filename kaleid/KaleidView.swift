@@ -16,7 +16,7 @@ struct KaleidView<Content: View>: View {
       ForEach(0..<Int(count / 2.0), id: \.self) { index in
         MirroredView {
           content
-            .clipShape(Pie(count: count))
+            .clipShape(Pie(count: Int(count)))
         }
         .rotationEffect(.degrees(CGFloat(index) * angle), anchor: .center)
       }
