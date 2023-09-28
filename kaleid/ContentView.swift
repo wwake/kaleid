@@ -13,15 +13,38 @@ struct ContentView: View {
 
   var body: some View {
     GeometryReader { geometry in
-      KaleidView(count: 3) {
-        Image("demo")
-          .resizable()
-          .offset(
-            x: angle.toX(geometry.size),
-            y: angle.toY(geometry.size, repeats: 10)
-          )
+      VStack {
+        TabView {
+          VStack {
+            KaleidView(count: 3) {
+              Image("demo")
+                .resizable()
+                .offset(
+                  x: angle.toX(geometry.size),
+                  y: angle.toY(geometry.size, repeats: 10)
+                )
+            }
+            .gesture(rotation)
+
+            Button("Select...") {
+              print("select image")
+            }
+          }
+          .tabItem {
+            Label("Photos", systemImage: "photo")
+          }
+          
+          Text("Camera TBD")
+            .tabItem {
+              Label("Camera", systemImage: "camera")
+            }
+          
+          Text("Shapes TBD")
+            .tabItem {
+              Label("Shapes", systemImage: "light.recessed.3")
+            }
+        }
       }
-      .gesture(rotation)
     }
   }
 }

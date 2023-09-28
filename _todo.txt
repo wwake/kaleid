@@ -1,7 +1,7 @@
-* Test repeats on AngleToXY
+* Tab icon size - try Image(systemName: "…").font(.title)
+* Select photo
 * rotate phone?
 
-* Select photo
 * Live camera
 * 3-d shapes
 
@@ -12,6 +12,7 @@ KAL-23-04: 9/28/23 - Map Rotation to x/y
 * Adjust pie calculations to avoid affine transformations
 * Adjusted top-level to tell number of mirrored segments rather than counting segment and its mirror separately
 * Pull out angle methods from ContentView
+* Test repeats on AngleToXY
 
 KAL-23-03: 9/27/23 - Motion
 * Move - add a drag gesture that relocates the point of interest
