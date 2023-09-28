@@ -35,8 +35,8 @@ struct ContentView: View {
         Image("demo")
           .resizable()
           .offset(
-            x: angleToX(angle, geometry.size),
-            y: angleToY(angle, geometry.size, repeats: 64)
+            x: angle.toX(geometry.size),
+            y: angle.angleToY(angle, geometry.size, repeats: 64)
           )
       }
       .gesture(rotation)
