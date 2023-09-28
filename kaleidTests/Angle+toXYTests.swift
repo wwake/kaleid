@@ -90,6 +90,18 @@ final class toYTests: XCTestCase {
   }
 
   func test_Repeats() {
+    let size = CGSize(width: 100.0, height: 200.0)
+    let tenthOfCircle = 360 / 10
 
+    let angle1 = Angle.degrees(18)
+    let angle2 = Angle.degrees(Double(18 + tenthOfCircle))
+    let angle3 = Angle.degrees(Double(18 + 2 * tenthOfCircle))
+
+    let y1 = angle1.toY(size, repeats: 10)
+    let y2 = angle2.toY(size, repeats: 10)
+    let y3 = angle3.toY(size, repeats: 10)
+
+    XCTAssertEqual(y1, y2, accuracy: fuzz)
+    XCTAssertEqual(y2, y3, accuracy: fuzz)
   }
 }

@@ -18,7 +18,7 @@ struct ContentView: View {
           .resizable()
           .offset(
             x: angle.toX(geometry.size),
-            y: angle.toY(geometry.size, repeats: 64)
+            y: angle.toY(geometry.size, repeats: 10)
           )
       }
       .gesture(rotation)

@@ -1,4 +1,3 @@
-* Pull out angle methods from ContentView
 * Test repeats on AngleToXY
 * rotate phone?
 
@@ -12,6 +11,7 @@ KAL-23-04: 9/28/23 - Map Rotation to x/y
 * Map rotation angle to a combination of x and y
 * Adjust pie calculations to avoid affine transformations
 * Adjusted top-level to tell number of mirrored segments rather than counting segment and its mirror separately
+* Pull out angle methods from ContentView
 
 KAL-23-03: 9/27/23 - Motion
 * Move - add a drag gesture that relocates the point of interest
