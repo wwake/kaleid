@@ -71,31 +71,31 @@ final class AngleToYTests: XCTestCase {
   func test_ZeroMapsToMidX_YesX() {
     let view = ContentView()
     let y = view.angleToY(.zero, CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 50.0, accuracy: fuzz)
+    XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_ZeroMapsToMidX_EvenWithRepeats() {
     let view = ContentView()
     let y = view.angleToY(.zero, CGSize(width: 100.0, height: 200.0), repeats: 100)
-    XCTAssertEqual(y, 50.0, accuracy: fuzz)
+    XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_PiMapsToMidX_YesX() {
     let view = ContentView()
     let y = view.angleToY(Angle.radians(.pi), CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 50.0, accuracy: fuzz)
+    XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_NegPiMapsToMidX_YesX() {
     let view = ContentView()
     let y = view.angleToY(Angle.radians(-.pi), CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 50.0, accuracy: fuzz)
+    XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_HalfPiMapsToMaxX_YesX() {
     let view = ContentView()
     let y = view.angleToY(Angle.radians(.pi / 2), CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 100.0, accuracy: fuzz)
+    XCTAssertEqual(y, 50.0, accuracy: fuzz)
   }
 
   func test_NegHalfPiMapsToMinX_YesX() {

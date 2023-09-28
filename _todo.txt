@@ -1,4 +1,3 @@
-
 * Map rotation angle to a combination of x and y
 * scale?
 * Adjust pie calculations to avoid affine transformations
