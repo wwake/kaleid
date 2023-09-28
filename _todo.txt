@@ -1,5 +1,3 @@
-* Map rotation angle to a combination of x and y
-* scale?
 * Adjust pie calculations to avoid affine transformations
 * rotate phone?
 
@@ -8,6 +6,10 @@
 * 3-d shapes
 
 Kaleidoscope
+
+KAL-23-04: 9/28/23 - Map Rotation to x/y
+* Map rotation angle to a combination of x and y
+
 
 KAL-23-03: 9/27/23 - Motion
 * Move - add a drag gesture that relocates the point of interest
