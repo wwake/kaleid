@@ -10,15 +10,15 @@ struct KaleidView<Content: View>: View {
   }
 
   var body: some View {
-    let angle = 360.0 / CGFloat(count) * 2.0
+    let mirroredRotationAngle = 360.0 / CGFloat(count / 2)
 
     return ZStack {
-      ForEach(0..<Int(CGFloat(count) / 2.0), id: \.self) { index in
+      ForEach(0..<(count / 2), id: \.self) { index in
         MirroredView {
           content
             .clipShape(Pie(count: Int(count)))
         }
-        .rotationEffect(.degrees(CGFloat(index) * angle), anchor: .center)
+        .rotationEffect(.degrees(CGFloat(index) * mirroredRotationAngle), anchor: .center)
       }
     }
   }
