@@ -9,19 +9,19 @@ final class AngleToXTests: XCTestCase {
   func test_ZeroMapsToMidX() {
     let view = ContentView()
     let x = view.angleToX(.zero, CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 50.0, accuracy: fuzz)
+    XCTAssertEqual(x, 25.0, accuracy: fuzz)
   }
 
   func test_PiMapsToMaxX() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(.pi), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 100.0, accuracy: fuzz)
+    XCTAssertEqual(x, 50.0, accuracy: fuzz)
   }
 
   func test_HalfPiMapsToMidX() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(.pi / 2), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 75, accuracy: fuzz)
+    XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
 
 
@@ -29,38 +29,38 @@ final class AngleToXTests: XCTestCase {
     let view = ContentView()
     let targetRadians = CGFloat.pi / 2
     let x = view.angleToX(Angle.radians(-.pi - targetRadians), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 75, accuracy: fuzz)
+    XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
 
   func test_ValuesWellBelowNegPiWrapAround() throws {
     let view = ContentView()
     let targetRadians = CGFloat.pi / 2
     let x = view.angleToX(Angle.radians(-3 * .pi - targetRadians), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 75, accuracy: fuzz)
+    XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
 
   func test_NegPiMapsToMinX() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(-.pi), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 0, accuracy: fuzz)
+    XCTAssertEqual(x, 0.0, accuracy: fuzz)
   }
 
   func test_NegHalfPiMapsToOneQuarterX() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(-.pi / 2), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25, accuracy: fuzz)
+    XCTAssertEqual(x, 12.5, accuracy: fuzz)
   }
 
   func test_ValueJustAbovePiWrapsAround() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(.pi + .pi / 2), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25, accuracy: fuzz)
+    XCTAssertEqual(x, 12.5, accuracy: fuzz)
   }
 
   func test_ValueWellAbovePiWrapsAround() {
     let view = ContentView()
     let x = view.angleToX(Angle.radians(6 * .pi), CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 50, accuracy: fuzz)
+    XCTAssertEqual(x, 25.0, accuracy: fuzz)
   }
 }
 

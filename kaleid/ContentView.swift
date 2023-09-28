@@ -22,7 +22,7 @@ struct ContentView: View {
       workingAngle -= 2 * .pi
     }
 
-    return size.width * (workingAngle / (2 * .pi)) + size.width / 2
+    return (size.width / 4) * (1 + workingAngle / .pi)
   }
 
   func angleToY(_ angle: Angle, _ size: CGSize, repeats: Int) -> CGFloat {
@@ -31,7 +31,7 @@ struct ContentView: View {
 
   var body: some View {
     GeometryReader { geometry in
-      KaleidView(count: 6) {
+      KaleidView(count: 18) {
         Image("demo")
           .resizable()
           .offset(
