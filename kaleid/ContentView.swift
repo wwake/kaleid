@@ -31,7 +31,7 @@ struct ContentView: View {
 
   var body: some View {
     GeometryReader { geometry in
-      KaleidView(count: 6) {
+      KaleidView(count: 3) {
         Image("demo")
           .resizable()
           .offset(
