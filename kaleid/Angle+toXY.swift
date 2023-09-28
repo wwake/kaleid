@@ -15,7 +15,7 @@ extension Angle {
     return (size.width / 4) * (1 + workingAngle / .pi)
   }
 
-  func angleToY(_ angle: Angle, _ size: CGSize, repeats: Int) -> CGFloat {
-    (size.width / 4) * (1 + sin(Double(repeats) * angle.radians))
+  func toY(_ size: CGSize, repeats: Int) -> CGFloat {
+    (size.width / 4) * (1 + sin(Double(repeats) * self.radians))
   }
 }

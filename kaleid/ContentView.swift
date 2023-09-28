@@ -11,24 +11,6 @@ struct ContentView: View {
       }
   }
 
-  func angleToX(_ angle: Angle, _ size: CGSize) -> CGFloat {
-    var workingAngle = angle.radians
-
-    while (workingAngle < -.pi) {
-      workingAngle += 2 * .pi
-    }
-
-    while (workingAngle > .pi) {
-      workingAngle -= 2 * .pi
-    }
-
-    return (size.width / 4) * (1 + workingAngle / .pi)
-  }
-
-  func angleToY(_ angle: Angle, _ size: CGSize, repeats: Int) -> CGFloat {
-    (size.width / 4) * (1 + sin(Double(repeats) * angle.radians))
-  }
-
   var body: some View {
     GeometryReader { geometry in
       KaleidView(count: 3) {
@@ -36,7 +18,7 @@ struct ContentView: View {
           .resizable()
           .offset(
             x: angle.toX(geometry.size),
-            y: angle.angleToY(angle, geometry.size, repeats: 64)
+            y: angle.toY(geometry.size, repeats: 64)
           )
       }
       .gesture(rotation)
