@@ -25,7 +25,7 @@ struct ContentView: View {
               Image("demo")
                 .resizable()
                 .offset(
-                  x: angle.toX(geometry.size),
+                  x: angle.toX(geometry.size, mirrors),
                   y: angle.toY(geometry.size, repeats: sineRepeats)
                 )
             }
