@@ -1,3 +1,4 @@
+* Rotate device
 * Tab icon size - try Image(systemName: "…").font(.title)
 * Select photo
 * rotate phone?

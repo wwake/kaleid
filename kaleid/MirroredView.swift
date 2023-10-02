@@ -17,9 +17,10 @@ struct MirroredView<Content: View>: View {
   }
 }
 
-
 #Preview {
   MirroredView{
-    Circle()
+    Image("demo")
+      .resizable()
+      .clipShape(Pie(count: 2))
   }
 }

@@ -16,11 +16,10 @@ final class toXTests: XCTestCase {
     XCTAssertEqual(x, 50.0, accuracy: fuzz)
   }
 
-  func test_HalfPiMapsToMidX() {
+  func test_HalfPiMapsToHalfMidToMaxX() {
     let x = Angle.radians(.pi / 2).toX(CGSize(width: 100.0, height: 200.0))
     XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
-
 
   func test_ValuesBelowNegPiWrapsAround() throws {
     let targetRadians = CGFloat.pi / 2

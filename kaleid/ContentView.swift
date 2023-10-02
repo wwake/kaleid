@@ -1,8 +1,11 @@
+import CoreMotion
 import SwiftUI
 
 struct ContentView: View {
-  @State private var location: CGPoint = CGPoint(x: 100, y: -20)
   @State private var angle: Angle = .zero
+  @State private var mirrors = 10
+
+  @State var motionManager: CMMotionManager!
 
   var rotation: some Gesture {
     RotateGesture()
@@ -16,7 +19,7 @@ struct ContentView: View {
       VStack {
         TabView {
           VStack {
-            KaleidView(count: 3) {
+            KaleidView(count: mirrors) {
               Image("demo")
                 .resizable()
                 .offset(
@@ -33,12 +36,12 @@ struct ContentView: View {
           .tabItem {
             Label("Photos", systemImage: "photo")
           }
-          
+
           Text("Camera TBD")
             .tabItem {
               Label("Camera", systemImage: "camera")
             }
-          
+
           Text("Shapes TBD")
             .tabItem {
               Label("Shapes", systemImage: "light.recessed.3")
@@ -46,6 +49,15 @@ struct ContentView: View {
         }
       }
     }
+    .onAppear {
+      motionManager = CMMotionManager()
+      motionManager.gyroUpdateInterval = TimeInterval(0.1)
+      motionManager.startGyroUpdates(to: OperationQueue.main, withHandler: gyroUpdateHandler)
+    }
+  }
+
+  func gyroUpdateHandler(_ data: CMGyroData?, _ error: Error?) {
+    print("gyro update \(String(describing: data)) error: \(String(describing: error))")
   }
 }
 
