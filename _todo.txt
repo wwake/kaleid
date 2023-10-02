@@ -1,12 +1,15 @@
-* Rotate device
+* Image still cuts off around the edges sometimes
 * Tab icon size - try Image(systemName: "…").font(.title)
 * Select photo
-* rotate phone?
 
 * Live camera
 * 3-d shapes
 
 Kaleidoscope
+
+KAL-23-05: 2023/10/02 - Rotation or File Selection
+* Rotate device - yaw sets the angle of rotation
+
 
 KAL-23-04: 9/28/23 - Map Rotation to x/y
 * Map rotation angle to a combination of x and y

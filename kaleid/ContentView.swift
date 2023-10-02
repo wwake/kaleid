@@ -4,6 +4,7 @@ import SwiftUI
 struct ContentView: View {
   @State private var angle: Angle = .zero
   @State private var mirrors = 10
+  @State private var sineRepeats = 3
 
   @State var motionManager: CMMotionManager!
 
@@ -17,6 +18,7 @@ struct ContentView: View {
   var body: some View {
     GeometryReader { geometry in
       VStack {
+       // Text("Angle: \(angle.degrees)")
         TabView {
           VStack {
             KaleidView(count: mirrors) {
@@ -24,7 +26,7 @@ struct ContentView: View {
                 .resizable()
                 .offset(
                   x: angle.toX(geometry.size),
-                  y: angle.toY(geometry.size, repeats: 10)
+                  y: angle.toY(geometry.size, repeats: sineRepeats)
                 )
             }
             .gesture(rotation)
@@ -51,13 +53,14 @@ struct ContentView: View {
     }
     .onAppear {
       motionManager = CMMotionManager()
-      motionManager.gyroUpdateInterval = TimeInterval(0.1)
-      motionManager.startGyroUpdates(to: OperationQueue.main, withHandler: gyroUpdateHandler)
+      motionManager.deviceMotionUpdateInterval = TimeInterval(0.05)
+      motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: motionUpdateHandler)
     }
   }
 
-  func gyroUpdateHandler(_ data: CMGyroData?, _ error: Error?) {
-    print("gyro update \(String(describing: data)) error: \(String(describing: error))")
+  func motionUpdateHandler(_ data: CMDeviceMotion?, _ error: Error?) {
+    if data == nil || error != nil { return }
+    angle = .radians(data!.attitude.yaw)
   }
 }
 
