@@ -9,6 +9,11 @@
 
 Kaleidoscope
 
+KAL-23-06: 2023/10/3 - Respecting Boundaries
+* Set up an Experiment tab
+* Empirically reworked Angle+toXY() to keep pie in bounds
+* Realized we're moving the picture AND the Tab View changes the picture size, pushing us out of bounds on the main view (even though the experiment was ok)
+
 KAL-23-05: 2023/10/02 - Rotation or File Selection
 * Rotate device - yaw sets the angle of rotation
 

@@ -16,10 +16,10 @@ struct ContentView: View {
   }
 
   var body: some View {
-    GeometryReader { geometry in
-      VStack {
-       // Text("Angle: \(angle.degrees)")
-        TabView {
+    TabView {
+      GeometryReader { geometry in
+        VStack {
+          // Text("Angle: \(angle.degrees)")
           VStack {
             KaleidView(count: mirrors) {
               Image("demo")
@@ -35,26 +35,26 @@ struct ContentView: View {
               print("select image")
             }
           }
-          .tabItem {
-            Label("Photos", systemImage: "photo")
-          }
-
-          Text("Camera TBD")
-            .tabItem {
-              Label("Camera", systemImage: "camera")
-            }
-
-          Text("Shapes TBD")
-            .tabItem {
-              Label("Shapes", systemImage: "light.recessed.3")
-            }
-
-          ExperimentView()
-            .tabItem {
-              Label("Experiment", systemImage: "paperplane")
-            }
         }
       }
+        .tabItem {
+          Label("Photos", systemImage: "photo")
+        }
+
+        Text("Camera TBD")
+          .tabItem {
+            Label("Camera", systemImage: "camera")
+          }
+
+        Text("Shapes TBD")
+          .tabItem {
+            Label("Shapes", systemImage: "light.recessed.3")
+          }
+
+        ExperimentView()
+          .tabItem {
+            Label("Experiment", systemImage: "paperplane")
+          }
     }
     .onAppear {
       motionManager = CMMotionManager()
