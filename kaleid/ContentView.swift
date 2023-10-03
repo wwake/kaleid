@@ -37,24 +37,24 @@ struct ContentView: View {
           }
         }
       }
+      .tabItem {
+        Label("Photos", systemImage: "photo")
+      }
+
+      Text("Camera TBD")
         .tabItem {
-          Label("Photos", systemImage: "photo")
+          Label("Camera", systemImage: "camera")
         }
 
-        Text("Camera TBD")
-          .tabItem {
-            Label("Camera", systemImage: "camera")
-          }
+      Text("Shapes TBD")
+        .tabItem {
+          Label("Shapes", systemImage: "light.recessed.3")
+        }
 
-        Text("Shapes TBD")
-          .tabItem {
-            Label("Shapes", systemImage: "light.recessed.3")
-          }
-
-        ExperimentView()
-          .tabItem {
-            Label("Experiment", systemImage: "paperplane")
-          }
+      ExperimentView()
+        .tabItem {
+          Label("Experiment", systemImage: "paperplane")
+        }
     }
     .onAppear {
       motionManager = CMMotionManager()

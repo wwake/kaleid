@@ -17,13 +17,13 @@ struct ExperimentView: View {
       ZStack {
         Image("demo")
           .resizable()
+          .scaleEffect(y: -1)
           .offset(
             x: angle.toXOffset(geometry.size, mirrors),
             y: angle.toY(geometry.size, repeats: sineRepeats)
           )
         Pie(count: mirrors * 2)
           .stroke(Color.red)
-
       }
       .gesture(rotation)
     }

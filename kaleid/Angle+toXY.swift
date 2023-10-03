@@ -37,7 +37,7 @@ extension Angle {
 
     let centerY = size.height / 2.0 - 5.0
     let minYOffset = centerY - radius
-    let maxYOffset = -size.height / 2.0
+    let maxYOffset = -size.height / 2.0 + 5.0
 
     let result = -(minYOffset + (maxYOffset - minYOffset) * percent)
 
@@ -45,9 +45,7 @@ extension Angle {
       print("percent out of bounds - \(percent)")
     }
 
-    //assert(result >= minYOffset && result <= maxYOffset)
-   // let result = (size.width / 2) * percent
     print("angle=\(self.degrees) min=\(minYOffset) max=\(maxYOffset) result = \(result)")
-    return -0.75 * result
+    return -result
   }
 }
