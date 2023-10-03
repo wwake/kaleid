@@ -7,7 +7,7 @@ extension Angle {
   static var minY = 100000000.0
   static var maxY = -100000000.0
 
-  func toX(_ size: CGSize, _ mirrors: Int) -> CGFloat {
+  func toXOffset(_ size: CGSize, _ mirrors: Int) -> CGFloat {
     var workingAngle = self.radians
 
     while (workingAngle > 2 * .pi) {
@@ -20,35 +20,34 @@ extension Angle {
 
     let percent = workingAngle / (2.0 * .pi)
 
-    return percent * size.width * (Double(mirrors) - 2) / Double(mirrors)
+    let minX = -size.width / 2.0
+    let maxX = 0.0 + 5.0
+
+    let result = -0.5 * size.width * percent + 5.0
+
+    assert(result >= minX && result <= maxX)
+
+    return -result
   }
 
-//  func toX(_ size: CGSize, _ mirrors: Int) -> CGFloat {
-//    var workingAngle = self.radians
-//
-//    while (workingAngle < -.pi) {
-//      workingAngle += 2 * .pi
-//    }
-//
-//    while (workingAngle > .pi) {
-//      workingAngle -= 2 * .pi
-//    }
-//
-//    return (size.width / 4) * (1 + workingAngle / .pi)
-//  }
-
-
-//  func toY(_ size: CGSize, repeats: Int) -> CGFloat {
-//    let scaledSine = (1 + sin(Double(repeats) * self.radians)) / 2.0
-//    let result = size.height / 2.0 + (size.height / 2.0) * scaledSine
-//    Angle.minY = min(result, Angle.minY)
-//    Angle.maxY = max(result, Angle.maxY)
-//    print("a=\(self.degrees) min=\(Angle.minY.rounded()) max=\(Angle.maxY.rounded()) -> \(result.rounded())")
-//
-//    return result
-//  }
-
   func toY(_ size: CGSize, repeats: Int) -> CGFloat {
-    (size.width / 4) * (1 + sin(Double(repeats) * self.radians))
+    let radius = min(size.width, size.height) / 2.0
+
+    let percent = (1 + sin(Double(repeats) * self.radians)) / 2.0
+
+    let centerY = size.height / 2.0 - 5.0
+    let minYOffset = centerY - radius
+    let maxYOffset = -size.height / 2.0
+
+    let result = -(minYOffset + (maxYOffset - minYOffset) * percent)
+
+    if percent < 0.0 || percent > 1.0 {
+      print("percent out of bounds - \(percent)")
+    }
+
+    //assert(result >= minYOffset && result <= maxYOffset)
+   // let result = (size.width / 2) * percent
+    print("angle=\(self.degrees) min=\(minYOffset) max=\(maxYOffset) result = \(result)")
+    return -0.75 * result
   }
 }

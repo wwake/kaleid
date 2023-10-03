@@ -1,4 +1,5 @@
-
+* Draw image and show pie pieces
+* Tile the image 3x3, make sure center stays in middle tile
 * Image still cuts off around the edges sometimes
 * Tab icon size - try Image(systemName: "…").font(.title)
 * Select photo

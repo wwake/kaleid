@@ -2,7 +2,7 @@ import CoreMotion
 import SwiftUI
 
 struct ContentView: View {
-  @State private var angle: Angle = .zero
+  @State private var angle: Angle = .degrees(0)
   @State private var mirrors = 10
   @State private var sineRepeats = 3
 
@@ -25,7 +25,7 @@ struct ContentView: View {
               Image("demo")
                 .resizable()
                 .offset(
-                  x: angle.toX(geometry.size, mirrors),
+                  x: angle.toXOffset(geometry.size, mirrors),
                   y: angle.toY(geometry.size, repeats: sineRepeats)
                 )
             }
@@ -47,6 +47,11 @@ struct ContentView: View {
           Text("Shapes TBD")
             .tabItem {
               Label("Shapes", systemImage: "light.recessed.3")
+            }
+
+          ExperimentView()
+            .tabItem {
+              Label("Experiment", systemImage: "paperplane")
             }
         }
       }
