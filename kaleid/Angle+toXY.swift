@@ -20,13 +20,7 @@ extension Angle {
 
     let percent = workingAngle / (2.0 * .pi)
 
-    let result = percent * size.width * (Double(mirrors) - 2) / Double(mirrors)
-
-    Angle.minX = min(result, Angle.minX)
-    Angle.maxX = max(result, Angle.maxX)
-
-    print("a=\(self.degrees) min=\(Angle.minX.rounded()) max=\(Angle.maxX.rounded()) -> \(result.rounded())")
-    return result
+    return percent * size.width * (Double(mirrors) - 2) / Double(mirrors)
   }
 
 //  func toX(_ size: CGSize, _ mirrors: Int) -> CGFloat {
@@ -45,7 +39,8 @@ extension Angle {
 
 
 //  func toY(_ size: CGSize, repeats: Int) -> CGFloat {
-//    let result = size.height / 2.0 + (size.height / 4) * (1 + sin(Double(repeats) * self.radians))
+//    let scaledSine = (1 + sin(Double(repeats) * self.radians)) / 2.0
+//    let result = size.height / 2.0 + (size.height / 2.0) * scaledSine
 //    Angle.minY = min(result, Angle.minY)
 //    Angle.maxY = max(result, Angle.maxY)
 //    print("a=\(self.degrees) min=\(Angle.minY.rounded()) max=\(Angle.maxY.rounded()) -> \(result.rounded())")
