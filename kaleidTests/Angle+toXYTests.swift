@@ -59,32 +59,32 @@ final class toYTests: XCTestCase {
   let fuzz = 0.00001
 
   func test_ZeroMapsToMidX_YesX() {
-    let y = Angle.zero.toY(CGSize(width: 100.0, height: 200.0), repeats: 1)
+    let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_ZeroMapsToMidX_EvenWithRepeats() {
-    let y = Angle.zero.toY(CGSize(width: 100.0, height: 200.0), repeats: 100)
+    let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 100)
     XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_PiMapsToMidX_YesX() {
-    let y = Angle.radians(.pi).toY(CGSize(width: 100.0, height: 200.0), repeats: 1)
+    let y = Angle.radians(.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_NegPiMapsToMidX_YesX() {
-    let y = Angle.radians(-.pi).toY(CGSize(width: 100.0, height: 200.0), repeats: 1)
+    let y = Angle.radians(-.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 25.0, accuracy: fuzz)
   }
 
   func test_HalfPiMapsToMaxX_YesX() {
-    let y = Angle.radians(.pi / 2).toY(CGSize(width: 100.0, height: 200.0), repeats: 1)
+    let y = Angle.radians(.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 50.0, accuracy: fuzz)
   }
 
   func test_NegHalfPiMapsToMinX_YesX() {
-    let y = Angle.radians(-.pi / 2).toY(CGSize(width: 100.0, height: 200.0), repeats: 1)
+    let y = Angle.radians(-.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 0.0, accuracy: fuzz)
   }
 
@@ -96,9 +96,9 @@ final class toYTests: XCTestCase {
     let angle2 = Angle.degrees(Double(18 + tenthOfCircle))
     let angle3 = Angle.degrees(Double(18 + 2 * tenthOfCircle))
 
-    let y1 = angle1.toY(size, repeats: 10)
-    let y2 = angle2.toY(size, repeats: 10)
-    let y3 = angle3.toY(size, repeats: 10)
+    let y1 = angle1.toYOffset(size, repeats: 10)
+    let y2 = angle2.toYOffset(size, repeats: 10)
+    let y3 = angle3.toYOffset(size, repeats: 10)
 
     XCTAssertEqual(y1, y2, accuracy: fuzz)
     XCTAssertEqual(y2, y3, accuracy: fuzz)

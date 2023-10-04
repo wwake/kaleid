@@ -1,6 +1,8 @@
+* Get rid of offsets (like "+ 5.0") in Angle+toXY
+* Should we move pie instead of picture?
+* How do we rotate and scale picture to start right
 * Draw image and show pie pieces
 * Tile the image 3x3, make sure center stays in middle tile
-* Image still cuts off around the edges sometimes
 * Tab icon size - try Image(systemName: "…").font(.title)
 * Select photo
 
@@ -9,10 +11,15 @@
 
 Kaleidoscope
 
+KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
+* Image still cuts off around the edges sometimes
+
+
 KAL-23-06: 2023/10/3 - Respecting Boundaries
 * Set up an Experiment tab
 * Empirically reworked Angle+toXY() to keep pie in bounds
 * Realized we're moving the picture AND the Tab View changes the picture size, pushing us out of bounds on the main view (even though the experiment was ok)
+* Changed Experiment to move image underneath the pie
 
 KAL-23-05: 2023/10/02 - Rotation or File Selection
 * Rotate device - yaw sets the angle of rotation

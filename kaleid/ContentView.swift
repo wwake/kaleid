@@ -19,14 +19,14 @@ struct ContentView: View {
     TabView {
       GeometryReader { geometry in
         VStack {
-          // Text("Angle: \(angle.degrees)")
           VStack {
             KaleidView(count: mirrors) {
               Image("demo")
                 .resizable()
+                .padding(-20.0)
                 .offset(
                   x: angle.toXOffset(geometry.size, mirrors),
-                  y: angle.toY(geometry.size, repeats: sineRepeats)
+                  y: angle.toYOffset(geometry.size, repeats: sineRepeats)
                 )
             }
             .gesture(rotation)
