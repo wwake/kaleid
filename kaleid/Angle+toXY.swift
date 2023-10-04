@@ -2,6 +2,8 @@ import SwiftUI
 
 
 extension Angle {
+  static var twoPi = 2.0 * Double.pi
+
   static var minX = 100000000.0
   static var maxX = -100000000.0
   static var minY = 100000000.0
@@ -10,24 +12,17 @@ extension Angle {
   func toXOffset(_ size: CGSize) -> CGFloat {
     var workingAngle = self.radians
 
-    while (workingAngle >= 2 * .pi) {
-      workingAngle -= 2 * .pi
+    while (workingAngle >= Angle.twoPi) {
+      workingAngle -= Angle.twoPi
     }
 
     while (workingAngle < 0) {
-      workingAngle += 2 * .pi
+      workingAngle += Angle.twoPi
     }
 
-    let percent = workingAngle / (2.0 * .pi)
+    let percent = workingAngle / Angle.twoPi
 
-    let minX = -size.width / 2.0
-    let maxX = 0.0
-
-    let result = -0.5 * size.width * percent
-
-    assert(result >= minX && result <= maxX)
-
-    return -result
+    return 0.5 * size.width * percent
   }
 
   func toYOffset(_ size: CGSize, repeats: Int) -> CGFloat {
