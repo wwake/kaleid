@@ -26,20 +26,11 @@ extension Angle {
   }
 
   func toYOffset(_ size: CGSize, repeats: Int) -> CGFloat {
-    let radius = min(size.width, size.height) / 2.0
-
     let percent = (1 + sin(Double(repeats) * self.radians)) / 2.0
 
-    let centerY = size.height / 2.0
-    let minYOffset = centerY - radius
-    let maxYOffset = -size.height / 2.0
+    let halfHeight = size.height / 2.0
+    let radius = min(size.width / 2.0, halfHeight)
 
-    let result = -(minYOffset + (maxYOffset - minYOffset) * percent)
-
-    if percent < 0.0 || percent > 1.0 {
-      print("percent out of bounds - \(percent)")
-    }
-
-    return -result
+    return (size.height - radius) * percent - halfHeight
   }
 }

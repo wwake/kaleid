@@ -57,34 +57,34 @@ final class toXTests: XCTestCase {
 final class toYTests: XCTestCase {
   let fuzz = 0.00001
 
-  func test_ZeroMapsToMidX_YesX() {
+  func test_ZeroMapsToNegativeMiddleOfRadius() {
     let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 25.0, accuracy: fuzz)
+    XCTAssertEqual(y, -25.0, accuracy: fuzz)
   }
 
-  func test_ZeroMapsToMidX_EvenWithRepeats() {
+  func test_ZeroMapsToNegativeMiddleOfRadius_EvenWithRepeats() {
     let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 100)
-    XCTAssertEqual(y, 25.0, accuracy: fuzz)
+    XCTAssertEqual(y, -25.0, accuracy: fuzz)
   }
 
-  func test_PiMapsToMidX_YesX() {
+  func test_PiMapsToNegativeMiddleOfRadius() {
     let y = Angle.radians(.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 25.0, accuracy: fuzz)
+    XCTAssertEqual(y, -25.0, accuracy: fuzz)
   }
 
   func test_NegPiMapsToMidX_YesX() {
     let y = Angle.radians(-.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 25.0, accuracy: fuzz)
+    XCTAssertEqual(y, -25.0, accuracy: fuzz)
   }
 
-  func test_HalfPiMapsToMaxX_YesX() {
+  func test_HalfPiMapsToHalfHeightMinusRadius() {
     let y = Angle.radians(.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
     XCTAssertEqual(y, 50.0, accuracy: fuzz)
   }
 
-  func test_NegHalfPiMapsToMinX_YesX() {
+  func test_NegHalfPiMapsToNegativeHalfHeight() {
     let y = Angle.radians(-.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 0.0, accuracy: fuzz)
+    XCTAssertEqual(y, -100.0, accuracy: fuzz)
   }
 
   func test_Repeats() {
