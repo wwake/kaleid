@@ -1,4 +1,3 @@
-* Get rid of offsets (like "+ 5.0") in Angle+toXY
 * Should we move pie instead of picture?
 * How do we rotate and scale picture to start right
 * Draw image and show pie pieces
@@ -13,6 +12,7 @@ Kaleidoscope
 
 KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
 * Image still cuts off around the edges sometimes
+* Get rid of offsets (like "+ 5.0") in Angle+toXY - did this with negative padding
 
 
 KAL-23-06: 2023/10/3 - Respecting Boundaries

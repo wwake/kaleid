@@ -20,7 +20,7 @@ struct ExperimentView: View {
           .scaleEffect(y: -1)
           .padding(-5.0)
           .offset(
-            x: angle.toXOffset(geometry.size, mirrors),
+            x: angle.toXOffset(geometry.size),
             y: angle.toYOffset(geometry.size, repeats: sineRepeats)
           )
         Pie(count: mirrors * 2)

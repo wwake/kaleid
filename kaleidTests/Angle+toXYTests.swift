@@ -7,50 +7,49 @@ final class toXTests: XCTestCase {
   let fuzz = 0.00001
 
   func test_ZeroMapsToMidX() {
-    let x = Angle.zero.toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25.0, accuracy: fuzz)
+    let x = Angle.zero.toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 0.0, accuracy: fuzz)
   }
 
   func test_PiMapsToMaxX() {
-    let x = Angle.radians(.pi).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 50.0, accuracy: fuzz)
+    let x = Angle.radians(.pi).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 25.0, accuracy: fuzz)
   }
 
   func test_HalfPiMapsToHalfMidToMaxX() {
-    let x = Angle.radians(.pi / 2).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 37.5, accuracy: fuzz)
+    let x = Angle.radians(.pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 12.5, accuracy: fuzz)
   }
 
-  func test_ValuesBelowNegPiWrapsAround() throws {
-    let targetRadians = CGFloat.pi / 2
-    let x = Angle.radians(-.pi - targetRadians).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 37.5, accuracy: fuzz)
+  func test_ValuesBelowNegPiWrapAround() throws {
+    let x = Angle.radians(-.pi - .pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 12.5, accuracy: fuzz)
   }
 
   func test_ValuesWellBelowNegPiWrapAround() throws {
     let targetRadians = CGFloat.pi / 2
-    let x = Angle.radians(-3 * .pi - targetRadians).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 37.5, accuracy: fuzz)
+    let x = Angle.radians(-3 * .pi - targetRadians).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 12.5, accuracy: fuzz)
   }
 
   func test_NegPiMapsToMinX() {
-    let x = Angle.radians(-.pi).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 0.0, accuracy: fuzz)
+    let x = Angle.radians(-.pi).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 25.0, accuracy: fuzz)
   }
 
   func test_NegHalfPiMapsToOneQuarterX() {
-    let x = Angle.radians(-.pi / 2).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 12.5, accuracy: fuzz)
+    let x = Angle.radians(-.pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
 
   func test_ValueJustAbovePiWrapsAround() {
-    let x = Angle.radians(.pi + .pi / 2).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 12.5, accuracy: fuzz)
+    let x = Angle.radians(.pi + .pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 37.5, accuracy: fuzz)
   }
 
   func test_ValueWellAbovePiWrapsAround() {
-    let x = Angle.radians(6 * .pi).toX(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25.0, accuracy: fuzz)
+    let x = Angle.radians(6 * .pi).toXOffset(CGSize(width: 100.0, height: 200.0))
+    XCTAssertEqual(x, 0.0, accuracy: fuzz)
   }
 }
 

@@ -7,10 +7,10 @@ extension Angle {
   static var minY = 100000000.0
   static var maxY = -100000000.0
 
-  func toXOffset(_ size: CGSize, _ mirrors: Int) -> CGFloat {
+  func toXOffset(_ size: CGSize) -> CGFloat {
     var workingAngle = self.radians
 
-    while (workingAngle > 2 * .pi) {
+    while (workingAngle >= 2 * .pi) {
       workingAngle -= 2 * .pi
     }
 
