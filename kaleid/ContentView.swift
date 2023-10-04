@@ -1,4 +1,5 @@
 import CoreMotion
+import PhotosUI
 import SwiftUI
 
 struct ContentView: View {
@@ -7,6 +8,21 @@ struct ContentView: View {
   @State private var sineRepeats = 3
 
   @State var motionManager: CMMotionManager!
+
+  @State var selectedPhoto: PhotosPickerItem?
+
+  struct PhotosSelector: View {
+    @Binding var selectedPhoto: PhotosPickerItem?
+
+    var body: some View {
+      PhotosPicker(
+        selection: $selectedPhoto,
+        matching: .images
+      ) {
+        Text("Select a Photo")
+      }
+    }
+  }
 
   var rotation: some Gesture {
     RotateGesture()
@@ -31,9 +47,7 @@ struct ContentView: View {
             }
             .gesture(rotation)
 
-            Button("Select...") {
-              print("select image")
-            }
+            PhotosSelector(selectedPhoto: $selectedPhoto)
           }
         }
       }
@@ -41,7 +55,7 @@ struct ContentView: View {
         Label("Photos", systemImage: "photo")
       }
 
-      Text("Camera TBD")
+      Text("Camera")
         .tabItem {
           Label("Camera", systemImage: "camera")
         }
@@ -60,6 +74,10 @@ struct ContentView: View {
       motionManager = CMMotionManager()
       motionManager.deviceMotionUpdateInterval = TimeInterval(0.05)
       motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: motionUpdateHandler)
+    }
+    .onChange(of: selectedPhoto) { value in
+      print("photo selection changed")
+      print(selectedPhoto)
     }
   }
 
