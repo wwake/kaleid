@@ -5,9 +5,9 @@ import SwiftUI
 public struct PhotoKaleidoscope: View {
   @State private var angle: Angle = .degrees(0)
 
-  @State var selectedPhoto: PhotosPickerItem?
+  @State private var photoData: Data?
 
-  @State var motionManager: CMMotionManager!
+  @State private var motionManager: CMMotionManager!
 
   private let mirrors = 10
   private let sineRepeats = 3
@@ -34,7 +34,7 @@ public struct PhotoKaleidoscope: View {
           }
           .gesture(self.rotation)
 
-          PhotoSelector(selectedPhoto: self.$selectedPhoto)
+          PhotoSelector(photoData: self.$photoData)
         }
       }
     }    
@@ -42,10 +42,6 @@ public struct PhotoKaleidoscope: View {
       self.motionManager = CMMotionManager()
       self.motionManager.deviceMotionUpdateInterval = TimeInterval(0.05)
       self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main, withHandler: self.motionUpdateHandler)
-    }
-    .onChange(of: selectedPhoto) { value in
-      print("photo selection changed")
-      print(self.selectedPhoto)
     }
   }
 

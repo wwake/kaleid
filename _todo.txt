@@ -1,10 +1,12 @@
-
 * Select photo
+* Split up PhotoKaleidoscope - eg a RotationView and insides
 
 * Live camera
 * 3-d shapes
 
-Kaleidoscope
+KAL-23-08: 2023/10/05 - Select a Photo
+* Split out PhotoSelector and PhotoKaleidoscope from ContentView
+
 
 KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
 * Image still cuts off around the edges sometimes
@@ -12,7 +14,7 @@ KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
 * Modify toXOffset and toYOffset to make sure they put pie inside the view; update tests
 * Use PhotosPicker to let user find photo; we don't yet use it
 
-KAL-23-06: 2023/10/3 - Respecting Boundaries
+KAL-23-06: 2023/10/03 - Respecting Boundaries
 * Set up an Experiment tab
 * Empirically reworked Angle+toXY() to keep pie in bounds
 * Realized we're moving the picture AND the Tab View changes the picture size, pushing us out of bounds on the main view (even though the experiment was ok)
