@@ -34,9 +34,6 @@ public struct PhotoKaleidoscope: View {
                 )
             }
           }
-          .onChange(of: sourceImage, initial: true) {
-            print("sourceImage oldState \($0) newState \($1)")
-          }
           .gesture(self.rotation)
 
           PhotoSelector(image: self.$sourceImage)
