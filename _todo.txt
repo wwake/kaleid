@@ -1,12 +1,12 @@
-* Select photo
 * Split up PhotoKaleidoscope - eg a RotationView and insides
-* Button to take picture of the current kaleidoscope image
 
 * Live camera
 * 3-d shapes
+* Button to take picture of the current kaleidoscope image
 
 KAL-23-08: 2023/10/05 - Select a Photo
 * Split out PhotoSelector and PhotoKaleidoscope from ContentView
+* Select photo
 
 
 KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
