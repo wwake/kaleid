@@ -4,12 +4,17 @@ struct ExperimentView: View {
   @State private var someImage: Image?
 
   var body: some View {
-    if let someImage {
-      someImage
-        .scaledToFit()
+    VStack {
+      if let someImage {
+        someImage
+          .resizable()
+          .scaledToFit()
+      } else {
+        Text("No image found")
+      }
+      
+      PhotoSelector(image: $someImage)
     }
-
-    PhotoSelector(image: $someImage)
   }
 }
 

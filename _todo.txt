@@ -1,5 +1,6 @@
 * Select photo
 * Split up PhotoKaleidoscope - eg a RotationView and insides
+* Button to take picture of the current kaleidoscope image
 
 * Live camera
 * 3-d shapes
