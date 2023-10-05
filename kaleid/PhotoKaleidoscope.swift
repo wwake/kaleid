@@ -22,24 +22,35 @@ public struct PhotoKaleidoscope: View {
   public var body: some View {
     GeometryReader { geometry in
       VStack {
-        VStack {
+        if let sourceImage {
           KaleidView(count: self.mirrors) {
-            if let sourceImage {
-              sourceImage
-                .resizable()
-                .padding(-20.0)
-                .offset(
-                  x: self.angle.toXOffset(geometry.size),
-                  y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
-                )
-            }
+            sourceImage
+              .resizable()
+              .padding(-20.0)
+              .offset(
+                x: self.angle.toXOffset(geometry.size),
+                y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
+              )
           }
           .gesture(self.rotation)
-
-          PhotoSelector(image: self.$sourceImage)
+        } else {
+          VStack {
+            Spacer()
+            HStack {
+              Spacer()
+              Text("No image selected")
+                .foregroundStyle(.gray)
+                .font(.title)
+              Spacer()
+            }
+            Spacer()
+          }
         }
+
+        PhotoSelector(image: self.$sourceImage)
+        Spacer()
       }
-    }    
+    }
     .onAppear {
       self.motionManager = CMMotionManager()
       self.motionManager.deviceMotionUpdateInterval = TimeInterval(0.05)
