@@ -1,7 +1,6 @@
 import PhotosUI
 import SwiftUI
 
-@MainActor
 struct PhotoSelector: View {
   @Binding var image: Image?
 
