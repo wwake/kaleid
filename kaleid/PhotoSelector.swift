@@ -1,8 +1,9 @@
 import PhotosUI
 import SwiftUI
 
+@MainActor
 struct PhotoSelector: View {
-  @Binding var photoData: Data?
+  @Binding var image: Image?
 
   @State var selectedPhoto: PhotosPickerItem?
 
@@ -16,7 +17,10 @@ struct PhotoSelector: View {
     .onChange(of: selectedPhoto, initial: false) { newItem, _  in
       Task {
         if let data = try? await newItem?.loadTransferable(type: Data.self) {
-          photoData = data
+          if let uiImage = UIImage(data: data) {
+            image = Image(uiImage: uiImage)
+            return
+          }
         }
       }
     }

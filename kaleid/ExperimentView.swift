@@ -1,33 +1,15 @@
 import SwiftUI
 
 struct ExperimentView: View {
-  let mirrors = 3
-  let sineRepeats = 2
-  @State private var angle: Angle = .zero
-
-  var rotation: some Gesture {
-    RotateGesture()
-      .onChanged { value in
-        angle = value.rotation
-      }
-  }
+  @State private var someImage: Image?
 
   var body: some View {
-    GeometryReader { geometry in
-      ZStack {
-        Image("demo")
-          .resizable()
-          .scaleEffect(y: -1)
-          .padding(-5.0)
-          .offset(
-            x: angle.toXOffset(geometry.size),
-            y: angle.toYOffset(geometry.size, repeats: sineRepeats)
-          )
-        Pie(count: mirrors * 2)
-          .stroke(Color.red)
-      }
-      .gesture(rotation)
+    if let someImage {
+      someImage
+        .scaledToFit()
     }
+
+    PhotoSelector(image: $someImage)
   }
 }
 

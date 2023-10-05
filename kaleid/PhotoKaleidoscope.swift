@@ -5,7 +5,7 @@ import SwiftUI
 public struct PhotoKaleidoscope: View {
   @State private var angle: Angle = .degrees(0)
 
-  @State private var photoData: Data?
+  @State private var sourceImage: Image?
 
   @State private var motionManager: CMMotionManager!
 
@@ -24,17 +24,22 @@ public struct PhotoKaleidoscope: View {
       VStack {
         VStack {
           KaleidView(count: self.mirrors) {
-            Image("demo")
-              .resizable()
-              .padding(-20.0)
-              .offset(
-                x: self.angle.toXOffset(geometry.size),
-                y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
-              )
+            if let sourceImage {
+              sourceImage
+                .resizable()
+                .padding(-20.0)
+                .offset(
+                  x: self.angle.toXOffset(geometry.size),
+                  y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
+                )
+            }
+          }
+          .onChange(of: sourceImage, initial: true) {
+            print("sourceImage now \($0) initial \($1)")
           }
           .gesture(self.rotation)
 
-          PhotoSelector(photoData: self.$photoData)
+          PhotoSelector(image: self.$sourceImage)
         }
       }
     }    
