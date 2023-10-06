@@ -1,13 +1,13 @@
-* Split up PhotoKaleidoscope - eg a RotationView and insides
 
 * Live camera
-* 3-d shapes
 * Button to take picture of the current kaleidoscope image
+* Rotation at 0/360 has a jump - try image + reversed image underneath
+* 3-d shapes
 
 KAL-23-08: 2023/10/05 - Select a Photo
 * Split out PhotoSelector and PhotoKaleidoscope from ContentView
 * Select photo
-
+* Split up PhotoKaleidoscope - eg a RotationView and insides
 
 KAL-23-07: 2023/10/4 - Tangled Up in Boundaries
 * Image still cuts off around the edges sometimes

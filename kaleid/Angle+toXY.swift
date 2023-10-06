@@ -1,13 +1,7 @@
 import SwiftUI
 
-
 extension Angle {
   static var twoPi = 2.0 * Double.pi
-
-  static var minX = 100000000.0
-  static var maxX = -100000000.0
-  static var minY = 100000000.0
-  static var maxY = -100000000.0
 
   func toXOffset(_ size: CGSize) -> CGFloat {
     var workingAngle = self.radians

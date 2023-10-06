@@ -8,7 +8,7 @@ struct ExperimentView: View {
       if let someImage {
         someImage
           .resizable()
-          .scaledToFit()
+//          .scaledToFit()
       } else {
         Text("No image found")
       }
