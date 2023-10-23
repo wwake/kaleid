@@ -1,8 +1,21 @@
 
 * Live camera
+* Do we need a button to stop/start camera session?
+
 * Button to take picture of the current kaleidoscope image
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * 3-d shapes
+* Repeated images - not just a single circle's worth
+
+KAL-23-09: 2023/10/23 - Camera
+* Added camera permission to info.plist
+* Used stackoverflow answer with hints from kodeco to get camera working
+
+* Research:
+  + https://www.neuralception.com/detection-app-tutorial-camera-feed/
+  + https://stackoverflow.com/questions/59062886/how-to-using-realtime-camera-streaming-in-swiftui
+  + https://www.kodeco.com/26244793-building-a-camera-app-with-swiftui-and-combine?page=1#toc-anchor-001
+
 
 KAL-23-08: 2023/10/05 - Select a Photo
 * Split out PhotoSelector and PhotoKaleidoscope from ContentView
