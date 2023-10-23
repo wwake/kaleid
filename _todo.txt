@@ -1,6 +1,7 @@
 
-* Live camera
+* Show the images
 * Do we need a button to stop/start camera session?
+Live camera
 
 * Button to take picture of the current kaleidoscope image
 * Rotation at 0/360 has a jump - try image + reversed image underneath
@@ -8,6 +9,8 @@
 * Repeated images - not just a single circle's worth
 
 KAL-23-09: 2023/10/23 - Camera
+* Convert live feed to series of images (haven't seen yet)
+* Got camera showing live feed on iPad screen
 * Added camera permission to info.plist
 * Used stackoverflow answer with hints from kodeco to get camera working
 
