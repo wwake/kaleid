@@ -3,11 +3,13 @@ import UIKit
 import AVFoundation
 
 class PreviewView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
+  @Binding var image: UIImage?
+
   private var captureSession: AVCaptureSession?
   private var cameraQueue = DispatchQueue(label: "Kaleidoscope camera queue")
-  var latestImage: UIImage?
 
-  init() {
+  init(image: Binding<UIImage?>) {
+    self._image = image
     super.init(frame: .zero)
 
     var allowedAccess = false
@@ -79,36 +81,41 @@ class PreviewView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     guard let cvImage = sampleBuffer.imageBuffer else { return }
 
-    latestImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
+    image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
 
-    print("Captured image \(String(describing: latestImage))")
+    print("Captured image \(String(describing: image))")
   }
 }
 
 struct PreviewHolder: UIViewRepresentable {
+  @Binding var image: UIImage?
+
   func makeUIView(context: UIViewRepresentableContext<PreviewHolder>) -> PreviewView {
-    PreviewView()
+    PreviewView(image: $image)
   }
 
   func updateUIView(_ uiView: PreviewView, context: UIViewRepresentableContext<PreviewHolder>) {
+    uiView.image = image
+    print("update called")
   }
 
   typealias UIViewType = PreviewView
 }
 
-struct DemoVideoStreaming: View {
+struct ExperimentView: View {
+  @State private var image: UIImage?
+
   var body: some View {
     VStack {
-      PreviewHolder()
-    }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-  }
-}
 
-struct ExperimentView: View {
-  @State private var someImage: Image?
+      PreviewHolder(image: $image)
 
-  var body: some View {
-    DemoVideoStreaming()
+      if image != nil {
+        Image(uiImage: image!)
+          .border(Color.green)
+      }
+    }
+    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
   }
 }
 
