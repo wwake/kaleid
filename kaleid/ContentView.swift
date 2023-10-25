@@ -13,11 +13,6 @@ struct ContentView: View {
           Label("Camera", systemImage: "camera")
         }
 
-      Text("Shapes TBD")
-        .tabItem {
-          Label("Shapes", systemImage: "light.recessed.3")
-        }
-
       ExperimentView()
         .tabItem {
           Label("Experiment", systemImage: "paperplane")

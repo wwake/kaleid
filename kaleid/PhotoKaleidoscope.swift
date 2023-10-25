@@ -39,6 +39,8 @@ public struct PhotoKaleidoscope: View {
         }
 
         PhotoSelector(image: self.$sourceImage)
+          .padding([.bottom], 24)
+
         Spacer()
       }
     }
