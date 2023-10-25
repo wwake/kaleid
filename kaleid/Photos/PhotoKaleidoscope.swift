@@ -25,17 +25,7 @@ public struct PhotoKaleidoscope: View {
             }
           }
         } else {
-          VStack {
-            Spacer()
-            HStack {
-              Spacer()
-              Text("No image selected")
-                .foregroundStyle(.gray)
-                .font(.title)
-              Spacer()
-            }
-            Spacer()
-          }
+          ErrorMessage(text: "No image selected")
         }
 
         PhotoSelector(image: self.$sourceImage)

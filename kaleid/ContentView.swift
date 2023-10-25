@@ -8,7 +8,7 @@ struct ContentView: View {
         Label("Photos", systemImage: "photo")
       }
 
-      Text("Camera")
+      CameraKaleidoscope()
         .tabItem {
           Label("Camera", systemImage: "camera")
         }
