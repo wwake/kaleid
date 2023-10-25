@@ -13,8 +13,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
 
     getPermission()
     self.captureSession = setupSession()
-
-    startSession()
   }
 
   func reportError(_ newText: String?) {
@@ -83,11 +81,19 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
 
   func startSession() {
     cameraQueue.async {
-      self.captureSession?.startRunning()
+      if !self.isRunning {
+        self.captureSession?.startRunning()
+      }
     }
   }
 
   func stopSession() {
-    self.captureSession?.stopRunning()
+    if isRunning {
+      self.captureSession?.stopRunning()
+    }
+  }
+
+  var isRunning: Bool {
+    return self.captureSession != nil && self.captureSession!.isRunning
   }
 }
