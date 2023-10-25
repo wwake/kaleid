@@ -1,23 +1,29 @@
-* Turn on camera capture when entering camera tag, off when leaving
-Live camera
-
+* https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
+* Convert our RotatedView display to a UIImage
 * Button to take picture of the current kaleidoscope image
+* Click when picture taken
+* Animate view moving to corner
+* Save to photo album or local library
+
 * Rotation at 0/360 has a jump - try image + reversed image underneath
-* 3-d shapes
 * Repeated images - not just a single circle's worth
 
 KAL-23-11: 2023/10/25 - Independent Images
+Live camera
 * Simplified the conversion a little and switched to jpeg; this moves performance to an acceptable level.
 * Old article: developer.apple.com/library/archive/qa/qa1702/
 * Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
 * Track which tab we're on
+* Turn on camera capture when entering camera tag, off when leaving
 
 KAL-23-10: 2023/10/24 - Camera to UIImage
+Live camera
 * Show image & camera
 * Converted image to PNG to isolate it from the video buffers
 * Noted that the conversion was slow
 
 KAL-23-09: 2023/10/23 - Camera
+Live camera
 * Convert live feed to series of images (haven't seen yet)
 * Got camera showing live feed on iPad screen
 * Added camera permission to info.plist

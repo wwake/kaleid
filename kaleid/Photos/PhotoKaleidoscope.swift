@@ -26,8 +26,11 @@ public struct PhotoKaleidoscope: View {
                 )
             }
           }
+          .onTapGesture {
+            print("take a photo")
+          }
         }
-        
+
         PhotoSelector(image: self.$sourceImage)
           .padding([.bottom], 24)
 
