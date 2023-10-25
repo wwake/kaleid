@@ -21,7 +21,7 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
 
   func reportError(_ newText: String?) {
     DispatchQueue.main.async {
-      self.error = newText ?? "No error detected"
+      self.error = newText
     }
   }
 
@@ -105,7 +105,6 @@ struct ExperimentView: View {
       }
 
       if camera.image != nil {
-        Text("image changed \(camera.image!)")
         Image(uiImage: camera.image!)
           .border(Color.green)
       }
