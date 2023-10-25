@@ -9,7 +9,7 @@ struct ExperimentView: View {
   var body: some View {
     VStack {
       if camera.error != nil {
-        Text(verbatim: camera.error!)
+        ErrorMessage(text: camera.error!)
       }
 
       if camera.image != nil {

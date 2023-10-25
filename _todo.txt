@@ -1,7 +1,4 @@
-
 * Don't capture camera images when not on that tab - use onAppear & onDisappear?
-* Old article: developer.apple.com/library/archive/qa/qa1702/
-* Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
 * Do we need a button to stop/start camera session?
 Live camera
 
@@ -12,6 +9,8 @@ Live camera
 
 KAL-23-11: 2023/10/25 - Independent Images
 * Simplified the conversion a little and switched to jpeg; this moves performance to an acceptable level.
+* Old article: developer.apple.com/library/archive/qa/qa1702/
+* Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
 
 KAL-23-10: 2023/10/24 - Camera to UIImage
 * Show image & camera
