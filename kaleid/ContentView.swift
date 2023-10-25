@@ -6,6 +6,7 @@ enum ActiveTab: Hashable {
 
 struct ContentView: View {
   @State private var activeTab = ActiveTab.photo
+  @StateObject private var camera = CameraModel()
 
   var body: some View {
     TabView(selection: $activeTab) {
@@ -15,7 +16,7 @@ struct ContentView: View {
       }
       .tag(ActiveTab.photo)
 
-      CameraKaleidoscope()
+      CameraKaleidoscope(camera: camera)
         .tabItem {
           Label("Camera", systemImage: "camera")
         }

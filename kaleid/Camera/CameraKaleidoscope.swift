@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct CameraKaleidoscope: View {
-  @StateObject private var camera = CameraModel()
-
+  @ObservedObject var camera: CameraModel
+  
   private let mirrors = 10
 
   var body: some View {
