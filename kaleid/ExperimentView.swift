@@ -6,7 +6,6 @@ import VideoToolbox
 public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
   @Published public var error: String?
   @Published public var image: UIImage?
-  @Published public var updateCount: Int = 0
 
   private var captureSession: AVCaptureSession?
   private var cameraQueue = DispatchQueue(label: "Kaleidoscope camera queue")
@@ -24,7 +23,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
     DispatchQueue.main.async {
       self.error = newText ?? "No error detected"
     }
-    print("Camera error: \(String(describing: newText))")
   }
 
   func getPermission() {
@@ -42,7 +40,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
       reportError("User did not allow access to camera")
       return
     }
-    print("got permission")
   }
 
   func setupSession() -> AVCaptureSession? {
@@ -67,7 +64,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
 
     session.commitConfiguration()
 
-    print("session is set up")
     return session
   }
 
@@ -77,30 +73,15 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
     from connection: AVCaptureConnection
   ) {
     if let cvImage = sampleBuffer.imageBuffer {
-      let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
 
-      let pngData = resultImage.jpegData(compressionQuality: 0.85)
+      // copy to jpegData so we don't retain video buffer
+      let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
+      let jpegData = resultImage.jpegData(compressionQuality: 0.85)
 
       DispatchQueue.main.async {
-        self.image = UIImage(data: pngData!)
-        //self.image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
-        self.updateCount += 1
-        print("Captured image \(String(describing: self.image))")
+        self.image = UIImage(data: jpegData!)
       }
-
     }
-//    guard let cvImage = sampleBuffer.imageBuffer else {
-//      return
-//    }
-//
-//    let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage)).copy()
-//
-//    DispatchQueue.main.async {
-//      self.image = resultImage as? UIImage
-//      //self.image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
-//      self.updateCount += 1
-//      print("Captured image \(String(describing: self.image))")
-//    }
   }
 
   func startSession() {
@@ -123,19 +104,12 @@ struct ExperimentView: View {
         Text(verbatim: camera.error!)
       }
 
-      Text(verbatim: "\(camera.updateCount)")
-     // PreviewHolder(image: $image)
-
       if camera.image != nil {
         Text("image changed \(camera.image!)")
         Image(uiImage: camera.image!)
           .border(Color.green)
       }
     }
-    .onChange(of: camera.image) {
-      print("image changed \(camera.image)")
-    }
-   // .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
   }
 }
 
