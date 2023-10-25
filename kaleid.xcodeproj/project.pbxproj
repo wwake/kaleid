@@ -127,20 +127,15 @@
 		913F2D212ABF65F900F15632 /* kaleid */ = {
 			isa = PBXGroup;
 			children = (
+				91B802FB2AE99DA500FCCA43 /* Kaleidoscope */,
+				91B802F82AE99D4600FCCA43 /* Photos */,
+				91B802F92AE99D6100FCCA43 /* Camera */,
+				91B802FA2AE99D8300FCCA43 /* Experiment */,
 				91B802F52AE6F74300FCCA43 /* Info.plist */,
 				913F2D222ABF65F900F15632 /* kaleidApp.swift */,
 				913F2D242ABF65F900F15632 /* ContentView.swift */,
 				913F2D262ABF65FA00F15632 /* Assets.xcassets */,
 				913F2D282ABF65FA00F15632 /* Preview Content */,
-				9196056C2AC35464004B2F3C /* Pie.swift */,
-				9196056E2AC35FBE004B2F3C /* MirroredView.swift */,
-				919605702AC36949004B2F3C /* KaleidView.swift */,
-				919605742AC60B9F004B2F3C /* Angle+toXY.swift */,
-				91FA17CF2ACC908C009767BB /* ExperimentView.swift */,
-				91FA17D12ACF3184009767BB /* PhotoSelector.swift */,
-				91FA17D32ACF3209009767BB /* PhotoKaleidoscope.swift */,
-				91FA17D52ACF4DDD009767BB /* RotatedView.swift */,
-				91B802F62AE99C1E00FCCA43 /* CameraModel.swift */,
 			);
 			path = kaleid;
 			sourceTree = "<group>";
@@ -168,6 +163,43 @@
 				913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */,
 			);
 			path = kaleidUITests;
+			sourceTree = "<group>";
+		};
+		91B802F82AE99D4600FCCA43 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				91FA17D12ACF3184009767BB /* PhotoSelector.swift */,
+				91FA17D32ACF3209009767BB /* PhotoKaleidoscope.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		91B802F92AE99D6100FCCA43 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				91B802F62AE99C1E00FCCA43 /* CameraModel.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		91B802FA2AE99D8300FCCA43 /* Experiment */ = {
+			isa = PBXGroup;
+			children = (
+				91FA17CF2ACC908C009767BB /* ExperimentView.swift */,
+			);
+			path = Experiment;
+			sourceTree = "<group>";
+		};
+		91B802FB2AE99DA500FCCA43 /* Kaleidoscope */ = {
+			isa = PBXGroup;
+			children = (
+				9196056C2AC35464004B2F3C /* Pie.swift */,
+				9196056E2AC35FBE004B2F3C /* MirroredView.swift */,
+				919605702AC36949004B2F3C /* KaleidView.swift */,
+				919605742AC60B9F004B2F3C /* Angle+toXY.swift */,
+				91FA17D52ACF4DDD009767BB /* RotatedView.swift */,
+			);
+			path = Kaleidoscope;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
