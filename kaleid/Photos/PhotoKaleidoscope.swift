@@ -12,10 +12,12 @@ public struct PhotoKaleidoscope: View {
   public var body: some View {
     GeometryReader { geometry in
       VStack {
-        if let sourceImage {
+        if sourceImage == nil {
+          ErrorMessage(text: "No image selected")
+        } else {
           RotatedView(angle: $angle) {
             KaleidView(count: self.mirrors) {
-              sourceImage
+              sourceImage!
                 .resizable()
                 .padding(-20.0)
                 .offset(
@@ -24,10 +26,8 @@ public struct PhotoKaleidoscope: View {
                 )
             }
           }
-        } else {
-          ErrorMessage(text: "No image selected")
         }
-
+        
         PhotoSelector(image: self.$sourceImage)
           .padding([.bottom], 24)
 

@@ -9,9 +9,7 @@ struct CameraKaleidoscope: View {
     GeometryReader { geometry in
       VStack {
         if self.camera.error != nil {
-          Text(self.camera.error!)
-            .foregroundStyle(.gray)
-            .font(.title)
+          ErrorMessage(text: self.camera.error!)
         }
 
         if self.camera.image != nil {
