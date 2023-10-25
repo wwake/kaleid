@@ -1,5 +1,9 @@
 
-* Show the images
+* Converting to png isolates the uiimage from the buffer, but it's slow
+* Don't capture camera images when not on that tab
+* Old article: developer.apple.com/library/archive/qa/qa1702/
+* Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
+* Show image & camera
 * Do we need a button to stop/start camera session?
 Live camera
 
@@ -60,4 +64,3 @@ KAL-23-02: 9/26/23 - Mirroring
 KAL-23-01: 9/25/23 - Introducing Kaleid
 * Get a pie-shaped piece of Color
 * Clipped a photo to pie shape but didn't get the whole pie
-

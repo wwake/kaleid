@@ -1,17 +1,34 @@
+import AVFoundation
 import SwiftUI
 import UIKit
-import AVFoundation
+import VideoToolbox
 
-class PreviewView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
-  @Binding var image: UIImage?
+public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+  @Published public var error: String?
+  @Published public var image: UIImage?
+  @Published public var updateCount: Int = 0
 
   private var captureSession: AVCaptureSession?
   private var cameraQueue = DispatchQueue(label: "Kaleidoscope camera queue")
 
-  init(image: Binding<UIImage?>) {
-    self._image = image
-    super.init(frame: .zero)
+  override init() {
+    super.init()
 
+    getPermission()
+    self.captureSession = setupSession()
+
+    startSession()
+  }
+
+  func reportError(_ newText: String?) {
+    DispatchQueue.main.async {
+      self.error = newText ?? "No error detected"
+    }
+    print("Camera error: \(String(describing: newText))")
+  }
+
+  func getPermission() {
+    reportError(nil)
     var allowedAccess = false
     let blocker = DispatchGroup()
     blocker.enter()
@@ -22,100 +39,103 @@ class PreviewView: UIView, AVCaptureVideoDataOutputSampleBufferDelegate {
     blocker.wait()
 
     if !allowedAccess {
-      print("!!! NO ACCESS TO CAMERA")
+      reportError("User did not allow access to camera")
       return
     }
+    print("got permission")
+  }
 
-    // setup session
+  func setupSession() -> AVCaptureSession? {
     let session = AVCaptureSession()
     session.beginConfiguration()
 
-    //    let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .unspecified) //alternate
     let videoDevice = AVCaptureDevice.default(for: .video)
     guard videoDevice != nil, let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!), session.canAddInput(videoDeviceInput) else {
-      print("!!! NO CAMERA DETECTED")
-      return
+      reportError("No camera detected")
+      return nil
     }
     session.addInput(videoDeviceInput)
 
     let photoOutput = AVCaptureVideoDataOutput()
     guard session.canAddOutput(photoOutput) else {
-      print("can't add output to camera session")
-      return
+      reportError("Can't add output images to camera session")
+      return nil
     }
     photoOutput.setSampleBufferDelegate(self, queue: cameraQueue)
 
-    //   session.sessionPreset = .photo
     session.addOutput(photoOutput)
 
     session.commitConfiguration()
-    self.captureSession = session
+
+    print("session is set up")
+    return session
   }
 
-  override class var layerClass: AnyClass {
-    AVCaptureVideoPreviewLayer.self
-  }
+  public func captureOutput(
+    _ output: AVCaptureOutput,
+    didOutput sampleBuffer: CMSampleBuffer,
+    from connection: AVCaptureConnection
+  ) {
+    if let cvImage = sampleBuffer.imageBuffer {
+      let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
 
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+      let pngData = resultImage.jpegData(compressionQuality: 0.85)
 
-  var videoPreviewLayer: AVCaptureVideoPreviewLayer {
-    return layer as! AVCaptureVideoPreviewLayer
-  }
-
-  override func didMoveToSuperview() {
-    super.didMoveToSuperview()
-
-    if nil != self.superview {
-      self.videoPreviewLayer.session = self.captureSession
-      self.videoPreviewLayer.videoGravity = .resizeAspect
-      cameraQueue.async {
-        self.captureSession?.startRunning()
+      DispatchQueue.main.async {
+        self.image = UIImage(data: pngData!)
+        //self.image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
+        self.updateCount += 1
+        print("Captured image \(String(describing: self.image))")
       }
-    } else {
-      self.captureSession?.stopRunning()
+
+    }
+//    guard let cvImage = sampleBuffer.imageBuffer else {
+//      return
+//    }
+//
+//    let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage)).copy()
+//
+//    DispatchQueue.main.async {
+//      self.image = resultImage as? UIImage
+//      //self.image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
+//      self.updateCount += 1
+//      print("Captured image \(String(describing: self.image))")
+//    }
+  }
+
+  func startSession() {
+    cameraQueue.async {
+      self.captureSession?.startRunning()
     }
   }
 
-  func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-    guard let cvImage = sampleBuffer.imageBuffer else { return }
-
-    image = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
-
-    print("Captured image \(String(describing: image))")
+  func stopSession() {
+    self.captureSession?.stopRunning()
   }
-}
-
-struct PreviewHolder: UIViewRepresentable {
-  @Binding var image: UIImage?
-
-  func makeUIView(context: UIViewRepresentableContext<PreviewHolder>) -> PreviewView {
-    PreviewView(image: $image)
-  }
-
-  func updateUIView(_ uiView: PreviewView, context: UIViewRepresentableContext<PreviewHolder>) {
-    uiView.image = image
-    print("update called")
-  }
-
-  typealias UIViewType = PreviewView
 }
 
 struct ExperimentView: View {
-  @State private var image: UIImage?
+  @StateObject private var camera = CameraModel()
 
   var body: some View {
     VStack {
+      if camera.error != nil {
+        Text(verbatim: camera.error!)
+      }
 
-      PreviewHolder(image: $image)
+      Text(verbatim: "\(camera.updateCount)")
+     // PreviewHolder(image: $image)
 
-      if image != nil {
-        Image(uiImage: image!)
+      if camera.image != nil {
+        Text("image changed \(camera.image!)")
+        Image(uiImage: camera.image!)
           .border(Color.green)
       }
     }
-    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+    .onChange(of: camera.image) {
+      print("image changed \(camera.image)")
+    }
+   // .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
   }
 }
 
