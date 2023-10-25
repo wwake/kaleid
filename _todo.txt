@@ -1,9 +1,7 @@
 
-* Converting to png isolates the uiimage from the buffer, but it's slow
-* Don't capture camera images when not on that tab
+* Don't capture camera images when not on that tab - use onAppear & onDisappear?
 * Old article: developer.apple.com/library/archive/qa/qa1702/
 * Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
-* Show image & camera
 * Do we need a button to stop/start camera session?
 Live camera
 
@@ -11,6 +9,14 @@ Live camera
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * 3-d shapes
 * Repeated images - not just a single circle's worth
+
+KAL-23-11: 2023/10/25 - Independent Images
+* Simplified the conversion a little and switched to jpeg; this moves performance to an acceptable level.
+
+KAL-23-10: 2023/10/24 - Camera to UIImage
+* Show image & camera
+* Converted image to PNG to isolate it from the video buffers
+* Noted that the conversion was slow
 
 KAL-23-09: 2023/10/23 - Camera
 * Convert live feed to series of images (haven't seen yet)
@@ -22,7 +28,6 @@ KAL-23-09: 2023/10/23 - Camera
   + https://www.neuralception.com/detection-app-tutorial-camera-feed/
   + https://stackoverflow.com/questions/59062886/how-to-using-realtime-camera-streaming-in-swiftui
   + https://www.kodeco.com/26244793-building-a-camera-app-with-swiftui-and-combine?page=1#toc-anchor-001
-
 
 KAL-23-08: 2023/10/05 - Select a Photo
 * Split out PhotoSelector and PhotoKaleidoscope from ContentView
