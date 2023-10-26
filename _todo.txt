@@ -2,7 +2,7 @@
 * https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
 * Convert our RotatedView display to a UIImage
 * Button to take picture of the current kaleidoscope image
-* Click when picture taken
+* Click (audible) when picture taken
 * Animate view moving to corner
 * Save to photo album or local library
 

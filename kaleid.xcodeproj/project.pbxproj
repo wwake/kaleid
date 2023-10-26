@@ -25,6 +25,7 @@
 		91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802F62AE99C1E00FCCA43 /* CameraModel.swift */; };
 		91B802FD2AE99E4A00FCCA43 /* CameraKaleidoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */; };
 		91B802FF2AE9A54C00FCCA43 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FE2AE9A54C00FCCA43 /* ErrorMessage.swift */; };
+		91B803012AEAE1F000FCCA43 /* PhotoKaleidoscope2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B803002AEAE1F000FCCA43 /* PhotoKaleidoscope2.swift */; };
 		91FA17D02ACC908C009767BB /* ExperimentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA17CF2ACC908C009767BB /* ExperimentView.swift */; };
 		91FA17D22ACF3184009767BB /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA17D12ACF3184009767BB /* PhotoSelector.swift */; };
 		91FA17D42ACF3209009767BB /* PhotoKaleidoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA17D32ACF3209009767BB /* PhotoKaleidoscope.swift */; };
@@ -72,6 +73,7 @@
 		91B802F62AE99C1E00FCCA43 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKaleidoscope.swift; sourceTree = "<group>"; };
 		91B802FE2AE9A54C00FCCA43 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		91B803002AEAE1F000FCCA43 /* PhotoKaleidoscope2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKaleidoscope2.swift; sourceTree = "<group>"; };
 		91FA17CF2ACC908C009767BB /* ExperimentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentView.swift; sourceTree = "<group>"; };
 		91FA17D12ACF3184009767BB /* PhotoSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelector.swift; sourceTree = "<group>"; };
 		91FA17D32ACF3209009767BB /* PhotoKaleidoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKaleidoscope.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				91FA17CF2ACC908C009767BB /* ExperimentView.swift */,
+				91B803002AEAE1F000FCCA43 /* PhotoKaleidoscope2.swift */,
 			);
 			path = Experiment;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				9196056F2AC35FBE004B2F3C /* MirroredView.swift in Sources */,
 				91FA17D22ACF3184009767BB /* PhotoSelector.swift in Sources */,
+				91B803012AEAE1F000FCCA43 /* PhotoKaleidoscope2.swift in Sources */,
 				91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */,
 				9196056D2AC35464004B2F3C /* Pie.swift in Sources */,
 				91FA17D02ACC908C009767BB /* ExperimentView.swift in Sources */,
