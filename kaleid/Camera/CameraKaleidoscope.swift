@@ -2,17 +2,17 @@ import SwiftUI
 
 struct CameraKaleidoscope: View {
   @ObservedObject var camera: CameraModel
-  
+
   private let mirrors = 10
 
   var body: some View {
-    GeometryReader { geometry in
-      VStack {
-        if self.camera.error != nil {
-          ErrorMessage(text: self.camera.error!)
-        }
+    VStack {
+      if self.camera.error != nil {
+        ErrorMessage(text: self.camera.error!)
+      }
 
-        if self.camera.image != nil {
+      if self.camera.image != nil {
+        GeometryReader { geometry in
           KaleidView(count: self.mirrors) {
             Image(uiImage: self.camera.image!)
               .resizable()
