@@ -1,3 +1,4 @@
+import CoreMotion
 import SwiftUI
 
 enum ActiveTab: Hashable {

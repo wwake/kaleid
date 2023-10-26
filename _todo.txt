@@ -1,5 +1,4 @@
-* Make RotatedView a top-level view, to avoid tabs with different rotations interfering with each other
-* Button to take picture of the current kaleidoscope image
+* Tap to take picture of the current kaleidoscope image
 * Click (audible) when picture taken
 * Animate view moving to corner
 * Save to photo album or local library
@@ -19,6 +18,7 @@ Live camera
 * Copy image buffer, release it in the main queue - https://developer.apple.com/documentation/coremedia/cmsamplebuffer-u71
 * Track which tab we're on
 * Turn on camera capture when entering camera tag, off when leaving
+* Make RotatedView a top-level view, to avoid tabs with different rotations interfering with each other
 
 KAL-23-10: 2023/10/24 - Camera to UIImage
 Live camera
