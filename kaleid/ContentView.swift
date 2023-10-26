@@ -11,10 +11,10 @@ struct ContentView: View {
   var body: some View {
     TabView(selection: $activeTab) {
       PhotoKaleidoscope()
-      .tabItem {
-        Label("Photos", systemImage: "photo")
-      }
-      .tag(ActiveTab.photo)
+        .tabItem {
+          Label("Photos", systemImage: "photo")
+        }
+        .tag(ActiveTab.photo)
 
       CameraKaleidoscope(camera: camera)
         .tabItem {
@@ -22,7 +22,7 @@ struct ContentView: View {
         }
         .tag(ActiveTab.camera)
 
-        ExperimentView()
+      ExperimentView()
         .tabItem {
           Label("Experiment", systemImage: "paperplane")
         }

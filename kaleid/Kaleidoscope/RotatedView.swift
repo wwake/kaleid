@@ -12,16 +12,8 @@ public struct RotatedView<Content: View>: View {
     self.content = content()
   }
 
-  var rotation: some Gesture {
-    RotateGesture()
-      .onChanged { value in
-        angle.wrappedValue = value.rotation
-      }
-  }
-
   public var body: some View {
     content
-      .gesture(self.rotation)
       .onAppear {
         self.motionManager = CMMotionManager()
         self.motionManager.deviceMotionUpdateInterval = TimeInterval(0.05)

@@ -37,6 +37,5 @@ public struct PhotoKaleidoscope: View {
 
       Spacer()
     }
-
   }
 }

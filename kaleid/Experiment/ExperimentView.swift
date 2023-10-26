@@ -33,28 +33,27 @@ struct ExperimentView: View {
   @State private var renderedImage = Image(systemName: "photo")
   @Environment(\.displayScale) var displayScale
 
+  @State private var capturedAngle: Angle = .degrees(0)
+
   var body: some View {
     VStack {
       KaleidExperiment(angle: $angle, sourceImage: $sourceImage)
         .onTapGesture {
-          capture(angle: $angle, sourceImage: $sourceImage)
+          capturedAngle = angle
+          capture(angle: capturedAngle, sourceImage: $sourceImage)
         }
       PhotoSelector(image: self.$sourceImage)
 
       renderedImage
   //      .resizable()
     }
-//    .onChange(of: ) {
-//
-//    }
-//    .onAppear {
-//      render()
-//    }
-
+    .onChange(of: angle) {
+      print("\(angle.degrees)")
+    }
   }
 
-  @MainActor func capture(angle: Binding<Angle>, sourceImage: Binding<Image?>) {
-    let renderer = ImageRenderer(content: KaleidExperiment(angle: angle, sourceImage: sourceImage)
+  @MainActor func capture(angle: Angle, sourceImage: Binding<Image?>) {
+    let renderer = ImageRenderer(content: KaleidExperiment(angle: $capturedAngle, sourceImage: sourceImage)
       .frame(width: 300, height: 300))
 
     renderer.scale = displayScale
@@ -63,7 +62,6 @@ struct ExperimentView: View {
       renderedImage = Image(uiImage: uiImage)
     }
   }
-
 }
 
 #Preview {
