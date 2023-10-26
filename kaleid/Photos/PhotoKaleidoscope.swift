@@ -10,11 +10,11 @@ public struct PhotoKaleidoscope: View {
   private let sineRepeats = 3
 
   public var body: some View {
-    GeometryReader { geometry in
-      VStack {
-        if sourceImage == nil {
-          ErrorMessage(text: "No image selected")
-        } else {
+    VStack {
+      if sourceImage == nil {
+        ErrorMessage(text: "No image selected")
+      } else {
+        GeometryReader { geometry in
           RotatedView(angle: $angle) {
             KaleidView(count: self.mirrors) {
               sourceImage!
@@ -26,16 +26,17 @@ public struct PhotoKaleidoscope: View {
                 )
             }
           }
-          .onTapGesture {
-            print("take a photo")
-          }
         }
-
-        PhotoSelector(image: self.$sourceImage)
-          .padding([.bottom], 24)
-
-        Spacer()
+        .onTapGesture {
+          print("take a photo")
+        }
       }
+
+      PhotoSelector(image: self.$sourceImage)
+        .padding([.bottom], 24)
+
+      Spacer()
     }
+
   }
 }

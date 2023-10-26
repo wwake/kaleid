@@ -22,10 +22,7 @@ struct ContentView: View {
         }
         .tag(ActiveTab.camera)
 
-      VStack {
-        Text(verbatim: "\(activeTab)")
         ExperimentView()
-      }
         .tabItem {
           Label("Experiment", systemImage: "paperplane")
         }
