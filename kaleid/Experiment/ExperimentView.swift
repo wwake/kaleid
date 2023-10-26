@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct KaleidExperiment: View {
-  @Binding var angle: Angle
+  var angle: Angle
   @Binding var sourceImage: Image?
 
   private let mirrors = 10
@@ -25,33 +25,27 @@ struct KaleidExperiment: View {
 }
 
 struct ExperimentView: View {
-  @Binding var angle: Angle
+  var angle: Angle
 
   @State private var sourceImage: Image?
 
   @State private var renderedImage = Image(systemName: "photo")
   @Environment(\.displayScale) var displayScale
 
-  @State private var capturedAngle: Angle = .degrees(0)
-
   var body: some View {
     VStack {
-      KaleidExperiment(angle: $angle, sourceImage: $sourceImage)
+      KaleidExperiment(angle: angle, sourceImage: $sourceImage)
         .onTapGesture {
-          capturedAngle = angle
-          capture(angle: capturedAngle, sourceImage: $sourceImage)
+          capture(angle: angle, sourceImage: $sourceImage)
         }
       PhotoSelector(image: self.$sourceImage)
 
       renderedImage
     }
-    .onChange(of: angle) {
-      print("\(angle.degrees)")
-    }
   }
 
   @MainActor func capture(angle: Angle, sourceImage: Binding<Image?>) {
-    let renderer = ImageRenderer(content: KaleidExperiment(angle: $capturedAngle, sourceImage: sourceImage)
+    let renderer = ImageRenderer(content: KaleidExperiment(angle: angle, sourceImage: sourceImage)
       .frame(width: 300, height: 300))
 
     renderer.scale = displayScale
@@ -63,5 +57,5 @@ struct ExperimentView: View {
 }
 
 #Preview {
-  ExperimentView(angle: .constant(.degrees(0)))
+  ExperimentView(angle: .degrees(0))
 }

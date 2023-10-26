@@ -24,7 +24,7 @@ struct ContentView: View {
           }
           .tag(ActiveTab.camera)
         
-        ExperimentView(angle: $angle)
+        ExperimentView(angle: angle)
           .tabItem {
             Label("Experiment", systemImage: "paperplane")
           }
