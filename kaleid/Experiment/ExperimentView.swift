@@ -3,23 +3,21 @@ import SwiftUI
 struct KaleidExperiment: View {
   @Binding var angle: Angle
   @Binding var sourceImage: Image?
-  
+
   private let mirrors = 10
   private let sineRepeats = 3
 
   var body: some View {
     if sourceImage != nil {
       GeometryReader { geometry in
-        RotatedView(angle: $angle) {
-          KaleidView(count: self.mirrors) {
-            sourceImage!
-              .resizable()
-              .padding(-20.0)
-              .offset(
-                x: self.angle.toXOffset(geometry.size),
-                y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
-              )
-          }
+        KaleidView(count: self.mirrors) {
+          sourceImage!
+            .resizable()
+            .padding(-20.0)
+            .offset(
+              x: self.angle.toXOffset(geometry.size),
+              y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
+            )
         }
       }
     }
@@ -27,7 +25,8 @@ struct KaleidExperiment: View {
 }
 
 struct ExperimentView: View {
-  @State private var angle: Angle = .degrees(0)
+  @Binding var angle: Angle
+
   @State private var sourceImage: Image?
 
   @State private var renderedImage = Image(systemName: "photo")
@@ -45,7 +44,6 @@ struct ExperimentView: View {
       PhotoSelector(image: self.$sourceImage)
 
       renderedImage
-  //      .resizable()
     }
     .onChange(of: angle) {
       print("\(angle.degrees)")
@@ -65,5 +63,5 @@ struct ExperimentView: View {
 }
 
 #Preview {
-    ExperimentView()
+  ExperimentView(angle: .constant(.degrees(0)))
 }

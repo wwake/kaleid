@@ -1,6 +1,4 @@
-
-* https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
-* Convert our RotatedView display to a UIImage
+* Make RotatedView a top-level view, to avoid tabs with different rotations interfering with each other
 * Button to take picture of the current kaleidoscope image
 * Click (audible) when picture taken
 * Animate view moving to corner
@@ -8,6 +6,11 @@
 
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * Repeated images - not just a single circle's worth
+
+KAL-23-12: 2023/10/26 - Capture Images
+* Spike - capture a snapshot of an image to a UIImage
+* Removed simulator gesture rotation
+* https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
 
 KAL-23-11: 2023/10/25 - Independent Images
 Live camera
