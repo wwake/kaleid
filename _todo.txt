@@ -10,6 +10,7 @@ KAL-23-12: 2023/10/26 - Capture Images
 * Spike - capture a snapshot of an image to a UIImage
 * Removed simulator gesture rotation
 * https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
+* Spike how to capture a view when tapped
 
 KAL-23-11: 2023/10/25 - Independent Images
 Live camera
