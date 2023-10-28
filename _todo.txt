@@ -1,3 +1,4 @@
+
 * Tap to take picture of the current kaleidoscope image
 * Click (audible) when picture taken
 * Animate view moving to corner
