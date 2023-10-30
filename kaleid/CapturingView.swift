@@ -5,6 +5,7 @@ struct CapturingView<Content: View>: View {
   var content: Content
 
   @State private var scale: Double = 1.0
+  @State private var offset: Double = 0.0
 
   @Environment(\.displayScale) var displayScale
 
@@ -15,20 +16,24 @@ struct CapturingView<Content: View>: View {
 
   var body: some View {
     ZStack {
-      content
-        .onTapGesture {
-          withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
-            capture(content.frame(width: 300, height: 300))
-            scale = 0.5
-          } completion: {
-            captured = Image("1px")
-            scale = 1.0
+      GeometryReader { reader in
+        content
+          .onTapGesture {
+            withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
+              capture(content.frame(width: reader.size.width, height: reader.size.width))
+              scale = 0.5
+              offset = reader.size.width
+            } completion: {
+              captured = Image("1px")
+              scale = 1.0
+              offset = 0.0
+            }
           }
-        }
+      }
 
       captured
         .scaleEffect(scale)
-        .offset(x: 500.0 - 500.0 * scale, y: 500.0 - 500.0 * scale)
+        .offset(x: offset, y: offset)
     }
   }
 
