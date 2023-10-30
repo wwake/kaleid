@@ -24,60 +24,24 @@ struct KaleidExperiment: View {
   }
 }
 
-struct CapturingView<Content: View>: View {
-  var content: Content
-
-  @Environment(\.displayScale) var displayScale
-
-  init(@ViewBuilder _ content: () -> Content) {
-    self.content = content()
-  }
-
-  var body: some View {
-    content
-      .onTapGesture {
-        capture(content.frame(width: 300, height: 300))
-      }
-  }
-  @MainActor func capture(_ content: some View) {
-    let renderer = ImageRenderer(content: content)
-
-    renderer.scale = displayScale
-
-    if let uiImage = renderer.uiImage {
-      print(" \(String(describing: uiImage.jpegData(compressionQuality: 0.85)))")
-      //renderedImage = Image(uiImage: uiImage)
-    }
-  }
-}
-
 struct ExperimentView: View {
   var angle: Angle
 
   @State private var sourceImage: Image?
 
   @State private var renderedImage = Image(systemName: "photo")
+  
   @Environment(\.displayScale) var displayScale
 
   var body: some View {
     VStack {
-      CapturingView {
+      CapturingView(captured: $renderedImage) {
         KaleidExperiment(angle: angle, sourceImage: $sourceImage)
       }
 
       PhotoSelector(image: self.$sourceImage)
 
       renderedImage
-    }
-  }
-
-  @MainActor func capture<Content: View>(angle: Angle, sourceImage: Binding<Image?>, @ViewBuilder _ content: () -> Content) {
-    let renderer = ImageRenderer(content: content())
-
-    renderer.scale = displayScale
-
-    if let uiImage = renderer.uiImage {
-      renderedImage = Image(uiImage: uiImage)
     }
   }
 }

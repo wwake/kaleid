@@ -1,13 +1,13 @@
 * Tap to take picture of the current kaleidoscope image
 * Click (audible) when picture taken
 * Animate view moving to corner
-* Save to photo album or local library
+* Save to photo album or final tab
 
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * Repeated images - not just a single circle's worth
 
 KAL-23-13: 2023/10/30 - Screen Capture
-
+* Put the camera tab first (to ensure easier initial interaction)
 
 KAL-23-12: 2023/10/26 - Capture Images
 * Spike - capture a snapshot of an image to a UIImage

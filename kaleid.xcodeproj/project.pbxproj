@@ -22,6 +22,7 @@
 		919605712AC36949004B2F3C /* KaleidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605702AC36949004B2F3C /* KaleidView.swift */; };
 		919605732AC4BAD4004B2F3C /* Angle+toXYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */; };
 		919605752AC60B9F004B2F3C /* Angle+toXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605742AC60B9F004B2F3C /* Angle+toXY.swift */; };
+		91ACA05F2AF02A6900F88735 /* CapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ACA05E2AF02A6900F88735 /* CapturingView.swift */; };
 		91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802F62AE99C1E00FCCA43 /* CameraModel.swift */; };
 		91B802FD2AE99E4A00FCCA43 /* CameraKaleidoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */; };
 		91B802FF2AE9A54C00FCCA43 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FE2AE9A54C00FCCA43 /* ErrorMessage.swift */; };
@@ -68,6 +69,7 @@
 		919605702AC36949004B2F3C /* KaleidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaleidView.swift; sourceTree = "<group>"; };
 		919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+toXYTests.swift"; sourceTree = "<group>"; };
 		919605742AC60B9F004B2F3C /* Angle+toXY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+toXY.swift"; sourceTree = "<group>"; };
+		91ACA05E2AF02A6900F88735 /* CapturingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturingView.swift; sourceTree = "<group>"; };
 		91B802F52AE6F74300FCCA43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91B802F62AE99C1E00FCCA43 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
 		91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraKaleidoscope.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				91B802F92AE99D6100FCCA43 /* Camera */,
 				91B802FA2AE99D8300FCCA43 /* Experiment */,
 				913F2D282ABF65FA00F15632 /* Preview Content */,
+				91ACA05E2AF02A6900F88735 /* CapturingView.swift */,
 			);
 			path = kaleid;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				91B802FF2AE9A54C00FCCA43 /* ErrorMessage.swift in Sources */,
 				919605712AC36949004B2F3C /* KaleidView.swift in Sources */,
 				91B802FD2AE99E4A00FCCA43 /* CameraKaleidoscope.swift in Sources */,
+				91ACA05F2AF02A6900F88735 /* CapturingView.swift in Sources */,
 				913F2D252ABF65F900F15632 /* ContentView.swift in Sources */,
 				91FA17D42ACF3209009767BB /* PhotoKaleidoscope.swift in Sources */,
 				913F2D232ABF65F900F15632 /* kaleidApp.swift in Sources */,
