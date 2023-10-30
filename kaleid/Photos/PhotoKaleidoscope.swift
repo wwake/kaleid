@@ -5,7 +5,7 @@ import SwiftUI
 public struct PhotoKaleidoscope: View {
   var angle: Angle
   
-  @State private var sourceImage: Image?
+  @State private var sourceImage: Image = Image("demo")
   @State private var captured: Image = Image("1px")
 
   private let mirrors = 10
@@ -13,22 +13,18 @@ public struct PhotoKaleidoscope: View {
   
   public var body: some View {
     VStack {
-      if sourceImage == nil {
-        ErrorMessage(text: "No image selected")
-      } else {
-          CapturingView(captured: $captured) {
-            GeometryReader { geometry in
-              KaleidView(count: self.mirrors) {
-                sourceImage!
-                  .resizable()
-                  .padding(-20.0)
-                  .offset(
-                    x: self.angle.toXOffset(geometry.size),
-                    y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
-                  )
-              }
-            }
+      CapturingView(captured: $captured) {
+        GeometryReader { geometry in
+          KaleidView(count: self.mirrors) {
+            sourceImage
+              .resizable()
+              .padding(-20.0)
+              .offset(
+                x: self.angle.toXOffset(geometry.size),
+                y: self.angle.toYOffset(geometry.size, repeats: self.sineRepeats)
+              )
           }
+        }
       }
 
       PhotoSelector(image: self.$sourceImage)

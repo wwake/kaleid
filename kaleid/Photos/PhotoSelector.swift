@@ -2,7 +2,7 @@ import PhotosUI
 import SwiftUI
 
 struct PhotoSelector: View {
-  @Binding var image: Image?
+  @Binding var image: Image
 
   @State var selection: PhotosPickerItem?
 
