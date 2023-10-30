@@ -19,9 +19,9 @@ struct CapturingView<Content: View>: View {
       GeometryReader { reader in
         content
           .onTapGesture {
+            capture(content.frame(width: reader.size.width, height: reader.size.width))
             withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
-              capture(content.frame(width: reader.size.width, height: reader.size.width))
-              scale = 0.5
+              scale = 0.1
               offset = reader.size.width
             } completion: {
               captured = Image("1px")
