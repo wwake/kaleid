@@ -137,13 +137,13 @@
 				913F2D242ABF65F900F15632 /* ContentView.swift */,
 				913F2D262ABF65FA00F15632 /* Assets.xcassets */,
 				91B802F52AE6F74300FCCA43 /* Info.plist */,
+				91ACA05E2AF02A6900F88735 /* CapturingView.swift */,
 				91B802FE2AE9A54C00FCCA43 /* ErrorMessage.swift */,
 				91B802FB2AE99DA500FCCA43 /* Kaleidoscope */,
 				91B802F82AE99D4600FCCA43 /* Photos */,
 				91B802F92AE99D6100FCCA43 /* Camera */,
 				91B802FA2AE99D8300FCCA43 /* Experiment */,
 				913F2D282ABF65FA00F15632 /* Preview Content */,
-				91ACA05E2AF02A6900F88735 /* CapturingView.swift */,
 			);
 			path = kaleid;
 			sourceTree = "<group>";

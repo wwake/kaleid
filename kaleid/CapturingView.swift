@@ -17,8 +17,14 @@ struct CapturingView<Content: View>: View {
     ZStack {
       content
         .onTapGesture {
-          capture(content.frame(width: 300, height: 300))
-          scale = 0.0
+          withAnimation {
+            capture(content.frame(width: 300, height: 300))
+            scale = 0.0
+          } completion: {
+            print("done animation")
+            captured = Image("1px")
+            scale = 1.0
+          }
         }
 
       captured
