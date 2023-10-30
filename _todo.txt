@@ -1,4 +1,3 @@
-* Animate snapshot moving to corner
 * Tap to take picture of the current kaleidoscope image
 * Click (audible) when picture taken
 * Save to photo album or final tab
@@ -9,6 +8,7 @@
 KAL-23-13: 2023/10/30 - Screen Capture
 * Put the camera tab first (to ensure easier initial interaction)
 * Starter photo on photo view
+* Animate snapshot moving to corner
 
 KAL-23-12: 2023/10/26 - Capture Images
 * Spike - capture a snapshot of an image to a UIImage
