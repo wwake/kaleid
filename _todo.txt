@@ -2,6 +2,7 @@
 * Click (audible) when picture taken
 * Animate view moving to corner
 * Save to photo album or final tab
+* Starter photo on photo view
 
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * Repeated images - not just a single circle's worth

@@ -4,6 +4,8 @@ struct CapturingView<Content: View>: View {
   @Binding var captured: Image
   var content: Content
 
+  @State private var scale: Double = 1.0
+
   @Environment(\.displayScale) var displayScale
 
   init(captured: Binding<Image>, @ViewBuilder _ content: () -> Content) {
@@ -12,10 +14,18 @@ struct CapturingView<Content: View>: View {
   }
 
   var body: some View {
-    content
-      .onTapGesture {
-        capture(content.frame(width: 300, height: 300))
-      }
+    ZStack {
+      content
+        .onTapGesture {
+          capture(content.frame(width: 300, height: 300))
+          scale = 0.0
+        }
+
+      captured
+        .scaleEffect(scale)
+        .offset(x: 500.0 - 500.0 * scale, y: 500.0 - 500.0 * scale)
+        .animation(.linear(duration: 1.0), value: scale)
+    }
   }
 
   @MainActor func capture(_ content: some View) {
