@@ -17,11 +17,10 @@ struct CapturingView<Content: View>: View {
     ZStack {
       content
         .onTapGesture {
-          withAnimation {
+          withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
             capture(content.frame(width: 300, height: 300))
-            scale = 0.0
+            scale = 0.5
           } completion: {
-            print("done animation")
             captured = Image("1px")
             scale = 1.0
           }
@@ -30,7 +29,6 @@ struct CapturingView<Content: View>: View {
       captured
         .scaleEffect(scale)
         .offset(x: 500.0 - 500.0 * scale, y: 500.0 - 500.0 * scale)
-        .animation(.linear(duration: 1.0), value: scale)
     }
   }
 
