@@ -11,6 +11,9 @@ struct CapturingView<Content: View>: View {
 
   @Environment(\.displayScale) var displayScale
 
+  @State private var showSaveMessage = false
+  @State private var saveMessage = ""
+
   init(@ViewBuilder _ content: () -> Content) {
     self.content = content()
   }
@@ -36,6 +39,9 @@ struct CapturingView<Content: View>: View {
         .scaleEffect(scale)
         .offset(x: offset, y: offset)
     }
+    .alert(saveMessage, isPresented: $showSaveMessage) {
+      Button("OK", role: .cancel) { }
+    }
   }
 
   @MainActor func capture(_ content: some View) {
@@ -44,13 +50,32 @@ struct CapturingView<Content: View>: View {
     renderer.scale = displayScale
 
     if let uiImage = renderer.uiImage {
-//      let options = PHAssetResourceRequestOptions()
-//      options.originalFilename = "Captured from kaleid"
-
-      UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
-//      UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+      CaptureImage($showSaveMessage, $saveMessage).write(uiImage)
 
       captured = Image(uiImage: uiImage)
+    }
+  }
+}
+
+class CaptureImage: NSObject {
+  @Binding var showSavedMessage: Bool
+  @Binding var savedMessage: String
+
+  init(_ showSavedMessage: Binding<Bool>, _ savedMessage: Binding<String>) {
+    self._showSavedMessage = showSavedMessage
+    self._savedMessage = savedMessage
+  }
+
+  func write(_ image: UIImage) {
+    UIImageWriteToSavedPhotosAlbum(image, self, #selector(doneWritingPhoto), nil)
+  }
+
+  @objc func doneWritingPhoto(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    if let error = error {
+      DispatchQueue.main.async { [self] in
+        savedMessage = "When saving image: \(error.localizedDescription)"
+        showSavedMessage = true
+      }
     }
   }
 }
