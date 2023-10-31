@@ -1,3 +1,4 @@
+import AVFoundation
 import Photos
 import SwiftUI
 
@@ -13,6 +14,8 @@ struct CapturingView<Content: View>: View {
 
   @State private var showSaveMessage = false
   @State private var saveMessage = ""
+
+  let shutterSound: SystemSoundID = 1108
 
   init(@ViewBuilder _ content: () -> Content) {
     self.content = content()
@@ -51,7 +54,7 @@ struct CapturingView<Content: View>: View {
 
     if let uiImage = renderer.uiImage {
       CaptureImage($showSaveMessage, $saveMessage).write(uiImage)
-
+      AudioServicesPlaySystemSound(shutterSound)
       captured = Image(uiImage: uiImage)
     }
   }
