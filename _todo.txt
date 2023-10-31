@@ -1,4 +1,3 @@
-* Refactor so CapturingView owns the captured view
 * Save to photo album or final tab
 * Click (audible) when picture taken
   + https://stackoverflow.com/questions/59404039/how-to-play-audio-using-avaudioplayer-in-swiftui-project
@@ -6,11 +5,15 @@
   + https://github.com/TUNER88/iOSSystemSoundsLibrary
   + https://stackoverflow.com/questions/31126124/using-existing-system-sounds-in-ios-app-swift
 
+* SwiftLint
 * Rotation at 0/360 has a jump - try image + reversed image underneath
 * Repeated images - not just a single circle's worth
 * https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear
   + CIBumpDistortion
   + CITorusLensDistortion
+
+KAL-23-14: 2023/10/31 - To Photo Library
+* Refactor so CapturingView owns the captured view
 
 KAL-23-13: 2023/10/30 - Screen Capture
 * Put the camera tab first (to ensure easier initial interaction)

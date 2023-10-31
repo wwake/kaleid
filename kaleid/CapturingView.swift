@@ -1,3 +1,4 @@
+import Photos
 import SwiftUI
 
 struct CapturingView<Content: View>: View {
@@ -43,7 +44,12 @@ struct CapturingView<Content: View>: View {
     renderer.scale = displayScale
 
     if let uiImage = renderer.uiImage {
-//      print(" \(String(describing: uiImage.jpegData(compressionQuality: 0.85)))")
+//      let options = PHAssetResourceRequestOptions()
+//      options.originalFilename = "Captured from kaleid"
+
+      UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+//      UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+
       captured = Image(uiImage: uiImage)
     }
   }
