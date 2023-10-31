@@ -31,7 +31,7 @@ struct ContentView: View {
           }
           .tag(ActiveTab.experiment)
       }
-      .onChange(of: activeTab) {
+      .onChange(of: activeTab, initial: true) {
         if activeTab == .camera {
           camera.startSession()
         } else {
