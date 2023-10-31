@@ -23,15 +23,6 @@
         "identifier" : "913F2D2E2ABF65FA00F15632",
         "name" : "kaleidTests"
       }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:kaleid.xcodeproj",
-        "identifier" : "913F2D382ABF65FA00F15632",
-        "name" : "kaleidUITests"
-      }
     }
   ],
   "version" : 1
