@@ -11,8 +11,6 @@
 		913F2D252ABF65F900F15632 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D242ABF65F900F15632 /* ContentView.swift */; };
 		913F2D272ABF65FA00F15632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913F2D262ABF65FA00F15632 /* Assets.xcassets */; };
 		913F2D2A2ABF65FA00F15632 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 913F2D292ABF65FA00F15632 /* Preview Assets.xcassets */; };
-		913F2D3E2ABF65FA00F15632 /* kaleidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */; };
-		913F2D402ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */; };
 		919605622ABF6688004B2F3C /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 919605612ABF6688004B2F3C /* _todo.txt */; };
 		919605652ABF6696004B2F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 919605632ABF6696004B2F3C /* LICENSE */; };
 		919605662ABF6696004B2F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 919605642ABF6696004B2F3C /* README.md */; };
@@ -40,13 +38,6 @@
 			remoteGlobalIDString = 913F2D1E2ABF65F900F15632;
 			remoteInfo = kaleid;
 		};
-		913F2D3A2ABF65FA00F15632 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 913F2D172ABF65F900F15632 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 913F2D1E2ABF65F900F15632;
-			remoteInfo = kaleid;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -56,9 +47,6 @@
 		913F2D262ABF65FA00F15632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		913F2D292ABF65FA00F15632 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		913F2D2F2ABF65FA00F15632 /* kaleidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaleidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		913F2D392ABF65FA00F15632 /* kaleidUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaleidUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITests.swift; sourceTree = "<group>"; };
-		913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaleidUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		919605612ABF6688004B2F3C /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		919605632ABF6696004B2F3C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		919605642ABF6696004B2F3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -95,13 +83,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		913F2D362ABF65FA00F15632 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,7 +96,6 @@
 				919605642ABF6696004B2F3C /* README.md */,
 				913F2D212ABF65F900F15632 /* kaleid */,
 				913F2D322ABF65FA00F15632 /* kaleidTests */,
-				913F2D3C2ABF65FA00F15632 /* kaleidUITests */,
 				913F2D202ABF65F900F15632 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +105,6 @@
 			children = (
 				913F2D1F2ABF65F900F15632 /* kaleid.app */,
 				913F2D2F2ABF65FA00F15632 /* kaleidTests.xctest */,
-				913F2D392ABF65FA00F15632 /* kaleidUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,15 +141,6 @@
 				919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */,
 			);
 			path = kaleidTests;
-			sourceTree = "<group>";
-		};
-		913F2D3C2ABF65FA00F15632 /* kaleidUITests */ = {
-			isa = PBXGroup;
-			children = (
-				913F2D3D2ABF65FA00F15632 /* kaleidUITests.swift */,
-				913F2D3F2ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift */,
-			);
-			path = kaleidUITests;
 			sourceTree = "<group>";
 		};
 		91B802F82AE99D4600FCCA43 /* Photos */ = {
@@ -249,24 +219,6 @@
 			productReference = 913F2D2F2ABF65FA00F15632 /* kaleidTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		913F2D382ABF65FA00F15632 /* kaleidUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 913F2D492ABF65FA00F15632 /* Build configuration list for PBXNativeTarget "kaleidUITests" */;
-			buildPhases = (
-				913F2D352ABF65FA00F15632 /* Sources */,
-				913F2D362ABF65FA00F15632 /* Frameworks */,
-				913F2D372ABF65FA00F15632 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				913F2D3B2ABF65FA00F15632 /* PBXTargetDependency */,
-			);
-			name = kaleidUITests;
-			productName = kaleidUITests;
-			productReference = 913F2D392ABF65FA00F15632 /* kaleidUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,10 +233,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					913F2D2E2ABF65FA00F15632 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = 913F2D1E2ABF65F900F15632;
-					};
-					913F2D382ABF65FA00F15632 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 913F2D1E2ABF65F900F15632;
 					};
@@ -305,7 +253,6 @@
 			targets = (
 				913F2D1E2ABF65F900F15632 /* kaleid */,
 				913F2D2E2ABF65FA00F15632 /* kaleidTests */,
-				913F2D382ABF65FA00F15632 /* kaleidUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,13 +272,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		913F2D2D2ABF65FA00F15632 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		913F2D372ABF65FA00F15632 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -370,15 +310,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		913F2D352ABF65FA00F15632 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				913F2D402ABF65FA00F15632 /* kaleidUITestsLaunchTests.swift in Sources */,
-				913F2D3E2ABF65FA00F15632 /* kaleidUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -386,11 +317,6 @@
 			isa = PBXTargetDependency;
 			target = 913F2D1E2ABF65F900F15632 /* kaleid */;
 			targetProxy = 913F2D302ABF65FA00F15632 /* PBXContainerItemProxy */;
-		};
-		913F2D3B2ABF65FA00F15632 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 913F2D1E2ABF65F900F15632 /* kaleid */;
-			targetProxy = 913F2D3A2ABF65FA00F15632 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -616,42 +542,6 @@
 			};
 			name = Release;
 		};
-		913F2D4A2ABF65FA00F15632 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9VB3YTHK;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.kaleidUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = kaleid;
-			};
-			name = Debug;
-		};
-		913F2D4B2ABF65FA00F15632 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7B9VB3YTHK;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.kaleidUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = kaleid;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -678,15 +568,6 @@
 			buildConfigurations = (
 				913F2D472ABF65FA00F15632 /* Debug */,
 				913F2D482ABF65FA00F15632 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		913F2D492ABF65FA00F15632 /* Build configuration list for PBXNativeTarget "kaleidUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				913F2D4A2ABF65FA00F15632 /* Debug */,
-				913F2D4B2ABF65FA00F15632 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
