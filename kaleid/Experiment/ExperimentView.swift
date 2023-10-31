@@ -27,19 +27,15 @@ struct ExperimentView: View {
 
   @State private var sourceImage = Image("demo")
 
-  @State private var renderedImage = Image(systemName: "photo")
-  
   @Environment(\.displayScale) var displayScale
 
   var body: some View {
     VStack {
-      CapturingView(captured: $renderedImage) {
+      CapturingView {
         KaleidExperiment(angle: angle, sourceImage: $sourceImage)
       }
 
       PhotoSelector(image: self.$sourceImage)
-
-      renderedImage
     }
   }
 }

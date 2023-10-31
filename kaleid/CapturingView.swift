@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct CapturingView<Content: View>: View {
-  @Binding var captured: Image
   var content: Content
+
+  @State private var captured = Image("1px")
 
   @State private var scale: Double = 1.0
   @State private var offset: Double = 0.0
 
   @Environment(\.displayScale) var displayScale
 
-  init(captured: Binding<Image>, @ViewBuilder _ content: () -> Content) {
-    self._captured = captured
+  init(@ViewBuilder _ content: () -> Content) {
     self.content = content()
   }
 

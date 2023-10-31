@@ -6,14 +6,13 @@ public struct PhotoKaleidoscope: View {
   var angle: Angle
   
   @State private var sourceImage: Image = Image("demo")
-  @State private var captured: Image = Image("1px")
 
   private let mirrors = 10
   private let sineRepeats = 3
   
   public var body: some View {
     VStack {
-      CapturingView(captured: $captured) {
+      CapturingView {
         GeometryReader { geometry in
           KaleidView(count: self.mirrors) {
             sourceImage
