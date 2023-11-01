@@ -18,87 +18,51 @@ final class ToPositiveRadiansTests: XCTestCase {
       EG(-pi / 2, expect: 3 * pi / 2, "negative to positive")
     ) {
       let radians = Angle.radians($0.input).toPositiveRadians
-      XCTAssertEqual(radians, $0.expect, accuracy: fuzz)
+      XCTAssertEqual(radians, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
     }
   }
 }
 
-final class toXTests: XCTestCase {
+final class ToXOffsetTests: XCTestCase {
   private let fuzz = 0.00001
 
-  func test_ZeroMapsToZero() {
-    let x = Angle.zero.toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 0.0, accuracy: fuzz)
-  }
-
-  func test_QuarterPiMapsToQuarterX() {
-    let x = Angle.radians(.pi / 4).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 12.5, accuracy: fuzz)
-  }
-
-  func test_HalfPiMapsToMidX() {
-    let x = Angle.radians(.pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25.0, accuracy: fuzz)
-  }
-
-  func test_ThreeQuarterPiMapsToThreeQuarterX() {
-    let x = Angle.radians(3 * .pi / 4).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 37.5, accuracy: fuzz)
-  }
-
-  func test_PiMapsToMaxX() {
-    let x = Angle.radians(.pi).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 50.0, accuracy: fuzz)
-  }
-
-  func test_FivePiOver4MapsToThreeQuarterX() throws {
-    let x = Angle.radians(5 * .pi / 4).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 37.5, accuracy: fuzz)
-  }
-
-  func test_ThreePiOver2_MapsToMidX() {
-    let x = Angle.radians(3 * .pi / 2).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 25.0, accuracy: fuzz)
-  }
-
-  func test_SevenPiOver4MapsToQuarterX() throws {
-    let x = Angle.radians(7 * .pi / 4).toXOffset(CGSize(width: 100.0, height: 200.0))
-    XCTAssertEqual(x, 12.5, accuracy: fuzz)
+  func test_toXOffset() {
+    check(
+      EG(0.0, expect: 0.0, "0 radians maps to 0 x offset"),
+      EG(.pi / 4.0, expect: 12.5, "pi/4 => quarter x"),
+      EG(.pi / 2.0, expect: 25.0, "pi/2 => mid x"),
+      EG(3.0 * .pi / 4.0, expect: 37.5, "3*pi/4 => 3/4 x"),
+      EG(.pi, expect: 50.0, "pi => max x"),
+      EG(5.0 * .pi / 4.0, expect: 37.5, "5*pi/4 => 3/4 x"),
+      EG(3.0 * .pi / 2.0, expect: 25.0, "3*pi/2 => 1/2 x"),
+      EG(7.0 * .pi / 4.0, expect: 12.5, "7*pi/4 => 1/4 x")
+    ) {
+      let x = Angle.radians($0.input).toXOffset(CGSize(width: 100.0, height: 200.0))
+      XCTAssertEqual(x, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
+    }
   }
 }
 
 @MainActor
-final class toYTests: XCTestCase {
+final class ToYOffsetTests: XCTestCase {
   private let fuzz = 0.00001
 
-  func test_ZeroMapsToNegativeMiddleOfRadius() {
-    let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, -25.0, accuracy: fuzz)
+  func test_toYOffset() {
+    check(
+      EG(0.0, expect: -25.0, "0 radians maps to neg middle of radius"),
+      EG(.pi, expect: -25.0, "pi radians maps to neg middle of radius"),
+      EG(-.pi, expect: -25.0, "-pi => neg mid x (yes, x)"),
+      EG(.pi / 2.0, expect: 50.0, "pi/2 => Half height - radius"),
+      EG(-.pi / 2.0, expect: -100.0, "-pi/2 => -1/2 height")
+    ) {
+      let y = Angle.radians($0.input).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
+      XCTAssertEqual(y, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
+    }
   }
 
   func test_ZeroMapsToNegativeMiddleOfRadius_EvenWithRepeats() {
     let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 100)
     XCTAssertEqual(y, -25.0, accuracy: fuzz)
-  }
-
-  func test_PiMapsToNegativeMiddleOfRadius() {
-    let y = Angle.radians(.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, -25.0, accuracy: fuzz)
-  }
-
-  func test_NegPiMapsToMidX_YesX() {
-    let y = Angle.radians(-.pi).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, -25.0, accuracy: fuzz)
-  }
-
-  func test_HalfPiMapsToHalfHeightMinusRadius() {
-    let y = Angle.radians(.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, 50.0, accuracy: fuzz)
-  }
-
-  func test_NegHalfPiMapsToNegativeHalfHeight() {
-    let y = Angle.radians(-.pi / 2).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-    XCTAssertEqual(y, -100.0, accuracy: fuzz)
   }
 
   func test_Repeats() {

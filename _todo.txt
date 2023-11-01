@@ -1,14 +1,22 @@
+* Show more of the picture by taking the pie width into account - make it go 0-100% in the x axis based on image width - pie width
+
 * Taking a picture should only let you tap on kaleidoscope image (not white space around it)
+
+* Put captured images in their own album
+
+* Settings
+
 * Repeated images - not just a single circle's worth
 * https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear
   + CIBumpDistortion
   + CITorusLensDistortion
 
-* Put captured images in their own album
+* Put app on the app store
 
 KAL-23-16: 2023/11/01 - SwiftLint
 * Check SwiftLint violations; make sure to check tests too
 * Rotation at 0/360 has a jump - made x oscillate back and forth between 0 and half the width (so pie can't actually reach the far right)
+* Parameterize tests
 
 KAL-23-14: 2023/10/31 - To Photo Library
 * Refactor so CapturingView owns the captured view
