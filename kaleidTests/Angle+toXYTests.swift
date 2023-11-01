@@ -10,41 +10,16 @@ final class ToPositiveRadiansTests: XCTestCase {
   func test_ToPositiveRadians() {
     let pi = Double.pi
     check(
-      EG(2 * pi + pi / 2, expect: pi / 2, "just above 2*pi wraps")
+      EG(2 * pi + pi / 2, expect: pi / 2, "just above 2*pi wraps"),
+      EG(6 * pi, expect: 0, "well above 2*pi wraps"),
+      EG(-pi - pi / 2, expect: pi / 2, "negative value wraps"),
+      EG(-3 * pi - pi / 2, expect: pi / 2, "more negative value wraps"),
+      EG(-pi, expect: pi, "adds 2*pi to negative"),
+      EG(-pi / 2, expect: 3 * pi / 2, "negative to positive")
     ) {
       let radians = Angle.radians($0.input).toPositiveRadians
       XCTAssertEqual(radians, $0.expect, accuracy: fuzz)
     }
-  }
-
-  func test_ValueJustAboveTwoPiWrapsAround() {
-    let radians = Angle.radians(2 * .pi + .pi / 2).toPositiveRadians
-    XCTAssertEqual(radians, .pi / 2, accuracy: fuzz)
-  }
-
-  func test_ValueWellAbovePiWrapsAround() {
-    let radians = Angle.radians(6 * .pi).toPositiveRadians
-    XCTAssertEqual(radians, 0.0, accuracy: fuzz)
-  }
-
-  func test_ValuesBelowNegPiWrapAround() throws {
-    let radians = Angle.radians(-.pi - .pi / 2).toPositiveRadians
-    XCTAssertEqual(radians, .pi / 2, accuracy: fuzz)
-  }
-
-  func test_ValuesWellBelowNegPiWrapAround() throws {
-    let radians = Angle.radians(-3 * .pi - .pi / 2).toPositiveRadians
-    XCTAssertEqual(radians, .pi / 2, accuracy: fuzz)
-  }
-
-  func test_NegPiWrapsToPi() {
-    let radians = Angle.radians(-.pi).toPositiveRadians
-    XCTAssertEqual(radians, .pi, accuracy: fuzz)
-  }
-
-  func test_NegHalfPiMapsToOneQuarterX() {
-    let x = Angle.radians(-.pi / 2).toPositiveRadians
-    XCTAssertEqual(x, 3 * .pi / 2, accuracy: fuzz)
   }
 }
 

@@ -14,7 +14,7 @@ struct PhotoSelector: View {
       Task {
         if let data = try? await selection?.loadTransferable(type: Data.self) {
           if let uiImage = UIImage(data: data) {
-            image = Image(uiImage: uiImage)
+            image = Image(uiImage: uiImage) // swiftlint:disable:this accessibility_label_for_image
             return
           }
         }

@@ -28,6 +28,7 @@ struct CapturingView<Content: View>: View {
           .accessibilityAddTraits(.isButton)
           .onTapGesture {
             capture(content.frame(width: reader.size.width, height: reader.size.width))
+            // swiftlint:disable multiline_arguments
             withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
               scale = 0.1
               offset = reader.size.width
@@ -36,6 +37,7 @@ struct CapturingView<Content: View>: View {
               scale = 1.0
               offset = 0.0
             }
+            // swiftlint:enable multiline_arguments
           }
       }
 
@@ -57,7 +59,8 @@ struct CapturingView<Content: View>: View {
     if let uiImage = renderer.uiImage {
       CaptureImage($showSaveMessage, $saveMessage).write(uiImage)
       AudioServicesPlaySystemSound(shutterSound)
-      captured = Image(uiImage: uiImage)
+      captured = Image(uiImage: uiImage) // swiftlint:disable:this accessibility_label_for_image
+
     }
   }
 }
