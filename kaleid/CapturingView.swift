@@ -15,7 +15,7 @@ struct CapturingView<Content: View>: View {
   @State private var showSaveMessage = false
   @State private var saveMessage = ""
 
-  let shutterSound: SystemSoundID = 1108
+  let shutterSound: SystemSoundID = 1_108
 
   init(@ViewBuilder _ content: () -> Content) {
     self.content = content()
@@ -73,8 +73,9 @@ class CaptureImage: NSObject {
     UIImageWriteToSavedPhotosAlbum(image, self, #selector(doneWritingPhoto), nil)
   }
 
-  @objc func doneWritingPhoto(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-    if let error = error {
+  @objc
+  func doneWritingPhoto(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    if let error {
       DispatchQueue.main.async { [self] in
         savedMessage = "When saving image: \(error.localizedDescription)"
         showSavedMessage = true

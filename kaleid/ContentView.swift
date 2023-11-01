@@ -18,7 +18,7 @@ struct ContentView: View {
             Label("Camera", systemImage: "camera")
           }
           .tag(ActiveTab.camera)
-        
+
         PhotoKaleidoscope(angle: angle)
           .tabItem {
             Label("Photos", systemImage: "photo")

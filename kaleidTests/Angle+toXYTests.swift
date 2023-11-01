@@ -4,7 +4,7 @@ import XCTest
 
 @MainActor
 final class toXTests: XCTestCase {
-  let fuzz = 0.00001
+  private let fuzz = 0.00001
 
   func test_ZeroMapsToMidX() {
     let x = Angle.zero.toXOffset(CGSize(width: 100.0, height: 200.0))
@@ -55,7 +55,7 @@ final class toXTests: XCTestCase {
 
 @MainActor
 final class toYTests: XCTestCase {
-  let fuzz = 0.00001
+  private let fuzz = 0.00001
 
   func test_ZeroMapsToNegativeMiddleOfRadius() {
     let y = Angle.zero.toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)

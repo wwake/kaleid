@@ -18,7 +18,7 @@ struct MirroredView<Content: View>: View {
 }
 
 #Preview {
-  MirroredView{
+  MirroredView {
     Image("demo")
       .resizable()
       .clipShape(Pie(count: 2))

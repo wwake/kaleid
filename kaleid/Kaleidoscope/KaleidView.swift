@@ -24,7 +24,6 @@ struct KaleidView<Content: View>: View {
   }
 }
 
-
 #Preview {
   KaleidView(count: 3) {
     Image(systemName: "heart")

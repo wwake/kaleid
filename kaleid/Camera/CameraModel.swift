@@ -43,7 +43,10 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
     session.beginConfiguration()
 
     let videoDevice = AVCaptureDevice.default(for: .video)
-    guard videoDevice != nil, let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!), session.canAddInput(videoDeviceInput) else {
+    guard videoDevice != nil,
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
+            session.canAddInput(videoDeviceInput)
+    else {
       reportError("No camera detected")
       return nil
     }
@@ -94,6 +97,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
   }
 
   var isRunning: Bool {
-    return self.captureSession != nil && self.captureSession!.isRunning
+    self.captureSession != nil && self.captureSession!.isRunning
   }
 }

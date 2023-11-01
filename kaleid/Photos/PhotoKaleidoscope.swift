@@ -4,12 +4,12 @@ import SwiftUI
 
 public struct PhotoKaleidoscope: View {
   var angle: Angle
-  
-  @State private var sourceImage: Image = Image("demo")
+
+  @State private var sourceImage = Image("demo")
 
   private let mirrors = 10
   private let sineRepeats = 3
-  
+
   public var body: some View {
     VStack {
       CapturingView {

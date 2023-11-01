@@ -6,11 +6,11 @@ extension Angle {
   func toXOffset(_ size: CGSize) -> CGFloat {
     var workingAngle = self.radians
 
-    while (workingAngle >= Angle.twoPi) {
+    while workingAngle >= Angle.twoPi {
       workingAngle -= Angle.twoPi
     }
 
-    while (workingAngle < 0) {
+    while workingAngle < 0 {
       workingAngle += Angle.twoPi
     }
 

@@ -13,12 +13,10 @@ struct CameraKaleidoscope: View {
 
       if self.camera.image != nil {
         CapturingView {
-          GeometryReader { geometry in
-            KaleidView(count: self.mirrors) {
-              Image(uiImage: self.camera.image!)
-                .resizable()
-                .padding(-20.0)
-            }
+          KaleidView(count: self.mirrors) {
+            Image(uiImage: self.camera.image!)
+              .resizable()
+              .padding(-20.0)
           }
         }
       }
