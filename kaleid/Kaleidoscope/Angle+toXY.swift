@@ -18,7 +18,14 @@ extension Angle {
   }
 
   func toXOffset(_ size: CGSize) -> CGFloat {
-    let percent = self.toPositiveRadians / Angle.twoPi
+    let angle = self.toPositiveRadians
+
+    let percent: Double
+    if angle < .pi {
+      percent = angle / .pi
+    } else {
+      percent = 1.0 - (angle - .pi) / .pi
+    }
 
     return 0.5 * size.width * percent
   }

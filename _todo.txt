@@ -1,4 +1,5 @@
 * Rotation at 0/360 has a jump - try image + reversed image underneath
+* Taking a picture should only let you tap on kaleidoscope image (not white space around it)
 * Repeated images - not just a single circle's worth
 * https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear
   + CIBumpDistortion
