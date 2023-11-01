@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "egtest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/wwake/EGTest.git",
+      "state" : {
+        "revision" : "c0ec5c0d7129ac5f745dc0f8afee5537a19eb71b",
+        "version" : "0.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}

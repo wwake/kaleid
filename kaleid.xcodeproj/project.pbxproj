@@ -20,6 +20,7 @@
 		919605712AC36949004B2F3C /* KaleidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605702AC36949004B2F3C /* KaleidView.swift */; };
 		919605732AC4BAD4004B2F3C /* Angle+toXYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */; };
 		919605752AC60B9F004B2F3C /* Angle+toXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605742AC60B9F004B2F3C /* Angle+toXY.swift */; };
+		91A3A0BF2AF2E0E600CF6479 /* EGTest in Frameworks */ = {isa = PBXBuildFile; productRef = 91A3A0BE2AF2E0E600CF6479 /* EGTest */; };
 		91ACA05F2AF02A6900F88735 /* CapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ACA05E2AF02A6900F88735 /* CapturingView.swift */; };
 		91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802F62AE99C1E00FCCA43 /* CameraModel.swift */; };
 		91B802FD2AE99E4A00FCCA43 /* CameraKaleidoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A3A0BF2AF2E0E600CF6479 /* EGTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +99,7 @@
 				913F2D212ABF65F900F15632 /* kaleid */,
 				913F2D322ABF65FA00F15632 /* kaleidTests */,
 				913F2D202ABF65F900F15632 /* Products */,
+				91A3A0BD2AF2E0E600CF6479 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +144,13 @@
 				919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */,
 			);
 			path = kaleidTests;
+			sourceTree = "<group>";
+		};
+		91A3A0BD2AF2E0E600CF6479 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		91B802F82AE99D4600FCCA43 /* Photos */ = {
@@ -198,6 +208,8 @@
 			dependencies = (
 			);
 			name = kaleid;
+			packageProductDependencies = (
+			);
 			productName = kaleid;
 			productReference = 913F2D1F2ABF65F900F15632 /* kaleid.app */;
 			productType = "com.apple.product-type.application";
@@ -213,9 +225,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				91A3A0BC2AF2E05700CF6479 /* PBXTargetDependency */,
 				913F2D312ABF65FA00F15632 /* PBXTargetDependency */,
 			);
 			name = kaleidTests;
+			packageProductDependencies = (
+				91A3A0BE2AF2E0E600CF6479 /* EGTest */,
+			);
 			productName = kaleidTests;
 			productReference = 913F2D2F2ABF65FA00F15632 /* kaleidTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -248,6 +264,9 @@
 				Base,
 			);
 			mainGroup = 913F2D162ABF65F900F15632;
+			packageReferences = (
+				91593A762AF2DD9D00DA3671 /* XCRemoteSwiftPackageReference "EGTest" */,
+			);
 			productRefGroup = 913F2D202ABF65F900F15632 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +358,10 @@
 			isa = PBXTargetDependency;
 			target = 913F2D1E2ABF65F900F15632 /* kaleid */;
 			targetProxy = 913F2D302ABF65FA00F15632 /* PBXContainerItemProxy */;
+		};
+		91A3A0BC2AF2E05700CF6479 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 91A3A0BB2AF2E05700CF6479 /* EGTest */;
 		};
 /* End PBXTargetDependency section */
 
@@ -595,6 +618,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91593A762AF2DD9D00DA3671 /* XCRemoteSwiftPackageReference "EGTest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wwake/EGTest.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91A3A0BB2AF2E05700CF6479 /* EGTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91593A762AF2DD9D00DA3671 /* XCRemoteSwiftPackageReference "EGTest" */;
+			productName = EGTest;
+		};
+		91A3A0BE2AF2E0E600CF6479 /* EGTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91593A762AF2DD9D00DA3671 /* XCRemoteSwiftPackageReference "EGTest" */;
+			productName = EGTest;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 913F2D172ABF65F900F15632 /* Project object */;
 }

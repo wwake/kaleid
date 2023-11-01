@@ -1,3 +1,4 @@
+import EGTest
 @testable import kaleid
 import SwiftUI
 import XCTest
@@ -5,6 +6,16 @@ import XCTest
 @MainActor
 final class ToPositiveRadiansTests: XCTestCase {
   private let fuzz = 0.00001
+
+  func test_ToPositiveRadians() {
+    let pi = Double.pi
+    check(
+      EG(2 * pi + pi / 2, expect: pi / 2, "just above 2*pi wraps")
+    ) {
+      let radians = Angle.radians($0.input).toPositiveRadians
+      XCTAssertEqual(radians, $0.expect, accuracy: fuzz)
+    }
+  }
 
   func test_ValueJustAboveTwoPiWrapsAround() {
     let radians = Angle.radians(2 * .pi + .pi / 2).toPositiveRadians
