@@ -3,7 +3,7 @@ import SwiftUI
 extension Angle {
   static var twoPi = 2.0 * Double.pi
 
-  func toXOffset(_ size: CGSize) -> CGFloat {
+  var toPositiveRadians: Double {
     var workingAngle = self.radians
 
     while workingAngle >= Angle.twoPi {
@@ -14,7 +14,11 @@ extension Angle {
       workingAngle += Angle.twoPi
     }
 
-    let percent = workingAngle / Angle.twoPi
+    return workingAngle
+  }
+
+  func toXOffset(_ size: CGSize) -> CGFloat {
+    let percent = self.toPositiveRadians / Angle.twoPi
 
     return 0.5 * size.width * percent
   }
