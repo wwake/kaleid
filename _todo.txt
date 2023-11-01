@@ -6,6 +6,8 @@
   + CIBumpDistortion
   + CITorusLensDistortion
 
+* Put captured images in their own album
+
 KAL-23-14: 2023/10/31 - To Photo Library
 * Refactor so CapturingView owns the captured view
 * Save to photo album from live camera or photo view

@@ -25,7 +25,7 @@ struct KaleidExperiment: View {
 struct ExperimentView: View {
   var angle: Angle
 
-  @State private var sourceImage = Image("demo")
+  @State private var sourceImage = Image(decorative: "demo")
 
   @Environment(\.displayScale) var displayScale
 

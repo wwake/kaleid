@@ -5,7 +5,7 @@ import SwiftUI
 public struct PhotoKaleidoscope: View {
   var angle: Angle
 
-  @State private var sourceImage = Image("demo")
+  @State private var sourceImage = Image(decorative: "demo")
 
   private let mirrors = 10
   private let sineRepeats = 3

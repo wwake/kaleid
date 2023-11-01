@@ -71,7 +71,6 @@ public class CameraModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSa
     from connection: AVCaptureConnection
   ) {
     if let cvImage = sampleBuffer.imageBuffer {
-
       // copy to jpegData so we don't retain video buffer
       let resultImage = UIImage(ciImage: CIImage(cvPixelBuffer: cvImage))
       let jpegData = resultImage.jpegData(compressionQuality: 0.85)

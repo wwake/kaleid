@@ -5,7 +5,7 @@ import SwiftUI
 struct CapturingView<Content: View>: View {
   var content: Content
 
-  @State private var captured = Image("1px")
+  @State private var captured = Image(decorative: "1px")
 
   @State private var scale: Double = 1.0
   @State private var offset: Double = 0.0
@@ -25,13 +25,14 @@ struct CapturingView<Content: View>: View {
     ZStack {
       GeometryReader { reader in
         content
+          .accessibilityAddTraits(.isButton)
           .onTapGesture {
             capture(content.frame(width: reader.size.width, height: reader.size.width))
             withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
               scale = 0.1
               offset = reader.size.width
             } completion: {
-              captured = Image("1px")
+              captured = Image(decorative: "1px")
               scale = 1.0
               offset = 0.0
             }
@@ -41,6 +42,7 @@ struct CapturingView<Content: View>: View {
       captured
         .scaleEffect(scale)
         .offset(x: offset, y: offset)
+        .accessibilityLabel("Captured kaleidoscope")
     }
     .alert(saveMessage, isPresented: $showSaveMessage) {
       Button("OK", role: .cancel) { }

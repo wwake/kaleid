@@ -16,6 +16,7 @@ struct CameraKaleidoscope: View {
           KaleidView(count: self.mirrors) {
             Image(uiImage: self.camera.image!)
               .resizable()
+              .accessibilityLabel("Kaleidoscope")
               .padding(-20.0)
           }
         }
