@@ -17,22 +17,28 @@ struct SettingsView: View {
   }
 
   var body: some View {
-    Form {
-      HStack {
-        Text("Repeats: \(repeats)")
+    NavigationStack {
+      Form {
+        Section {
+          HStack {
+            Text("Repeats: \(repeats)")
 
-        Slider(
-          value: repeatsEditing,
-          in: 3...20,
-          step: 1
-        ) {
-          Text("Repeats: \(repeats)")
-        } onEditingChanged: { _ in
-            //repeats = Int(repeatsEditing)
+            Slider(
+              value: repeatsEditing,
+              in: 3...20,
+              step: 1
+            ) {
+              Text("Repeats: \(repeats)")
+            } onEditingChanged: { _ in
+            }
+          }
+        } header: {
+          Text("")
         }
       }
+      .navigationTitle("Settings")
+      .padding()
     }
-    .padding()
   }
 }
 

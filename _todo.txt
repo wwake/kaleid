@@ -1,4 +1,3 @@
-* Setting for # of segments
 * Settings
 
 * Shut off camera when entering background - appears to be done automatically
@@ -20,6 +19,8 @@ KAL-23-16: 2023/11/02 - Wrapping Up (for now)
 * Taking a picture should only let you tap on kaleidoscope image (not white space around it)
 * Spiked showing more of picture but structure of app doesn't make Pie size available when we need it. (V2?)
 * Spiked putting captured images in their own album - more work than we wanted for now. (V2?)
+* Add Settings tab
+* Add setting for # repeats
 
 KAL-23-15: 2023/11/01 - SwiftLint
 * Check SwiftLint violations; make sure to check tests too
