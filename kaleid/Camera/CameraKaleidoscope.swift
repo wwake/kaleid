@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct CameraKaleidoscope: View {
-  @ObservedObject var camera: CameraModel
+  var repeats: Int
 
-  private let mirrors = 10
+  @ObservedObject var camera: CameraModel
 
   var body: some View {
     VStack {
@@ -13,7 +13,7 @@ struct CameraKaleidoscope: View {
 
       if self.camera.image != nil {
         CapturingView {
-          KaleidView(count: self.mirrors) {
+          KaleidView(count: self.repeats) {
             Image(uiImage: self.camera.image!)
               .resizable()
               .accessibilityLabel("Kaleidoscope")

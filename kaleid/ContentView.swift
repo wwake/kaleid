@@ -9,17 +9,18 @@ struct ContentView: View {
   @State private var activeTab = ActiveTab.camera
   @StateObject private var camera = CameraModel()
   @State private var angle: Angle = .degrees(0)
+  @State private var repeats = 10
 
   var body: some View {
     RotatedView(angle: $angle) {
       TabView(selection: $activeTab) {
-        CameraKaleidoscope(camera: camera)
+        CameraKaleidoscope(repeats: repeats, camera: camera)
           .tabItem {
             Label("Camera", systemImage: "camera")
           }
           .tag(ActiveTab.camera)
 
-        PhotoKaleidoscope(angle: angle)
+        PhotoKaleidoscope(repeats: repeats, angle: angle)
           .tabItem {
             Label("Photos", systemImage: "photo")
           }

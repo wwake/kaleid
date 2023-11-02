@@ -3,11 +3,11 @@ import PhotosUI
 import SwiftUI
 
 public struct PhotoKaleidoscope: View {
+  var repeats: Int
   var angle: Angle
 
   @State private var sourceImage = Image(decorative: "demo")
 
-  private let repeats = 10
   private let sineRepeats = 3
 
   public var body: some View {
