@@ -26,7 +26,7 @@ struct ContentView: View {
           }
           .tag(ActiveTab.photo)
 
-        SettingsView()
+        SettingsView(repeats: $repeats)
           .tabItem {
             Label("Settings", systemImage: "slider.horizontal.3")
           }
