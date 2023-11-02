@@ -9,7 +9,8 @@ struct ContentView: View {
   @State private var activeTab = ActiveTab.camera
   @StateObject private var camera = CameraModel()
   @State private var angle: Angle = .degrees(0)
-  @State private var repeats = 10
+
+  @AppStorage("repeats") private var repeats = 10
 
   var body: some View {
     RotatedView(angle: $angle) {
