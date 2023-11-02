@@ -1,5 +1,4 @@
 * Setting for # of segments
-
 * Settings
 
 * Shut off camera when entering background - appears to be done automatically
