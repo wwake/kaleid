@@ -7,14 +7,14 @@ public struct PhotoKaleidoscope: View {
 
   @State private var sourceImage = Image(decorative: "demo")
 
-  private let mirrors = 10
+  private let repeats = 10
   private let sineRepeats = 3
 
   public var body: some View {
     VStack {
       CapturingView {
         GeometryReader { geometry in
-          KaleidView(count: self.mirrors) {
+          KaleidView(count: self.repeats) {
             sourceImage
               .resizable()
               .padding(-20.0)

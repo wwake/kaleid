@@ -21,6 +21,7 @@
 		919605732AC4BAD4004B2F3C /* Angle+toXYTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */; };
 		919605752AC60B9F004B2F3C /* Angle+toXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919605742AC60B9F004B2F3C /* Angle+toXY.swift */; };
 		91A3A0BF2AF2E0E600CF6479 /* EGTest in Frameworks */ = {isa = PBXBuildFile; productRef = 91A3A0BE2AF2E0E600CF6479 /* EGTest */; };
+		91A3A0C22AF427EA00CF6479 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A3A0C12AF427EA00CF6479 /* SettingsView.swift */; };
 		91ACA05F2AF02A6900F88735 /* CapturingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ACA05E2AF02A6900F88735 /* CapturingView.swift */; };
 		91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802F62AE99C1E00FCCA43 /* CameraModel.swift */; };
 		91B802FD2AE99E4A00FCCA43 /* CameraKaleidoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B802FC2AE99E4A00FCCA43 /* CameraKaleidoscope.swift */; };
@@ -58,6 +59,7 @@
 		919605702AC36949004B2F3C /* KaleidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaleidView.swift; sourceTree = "<group>"; };
 		919605722AC4BAD4004B2F3C /* Angle+toXYTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+toXYTests.swift"; sourceTree = "<group>"; };
 		919605742AC60B9F004B2F3C /* Angle+toXY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Angle+toXY.swift"; sourceTree = "<group>"; };
+		91A3A0C12AF427EA00CF6479 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91ACA05E2AF02A6900F88735 /* CapturingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturingView.swift; sourceTree = "<group>"; };
 		91B802F52AE6F74300FCCA43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91B802F62AE99C1E00FCCA43 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				91B802FB2AE99DA500FCCA43 /* Kaleidoscope */,
 				91B802F82AE99D4600FCCA43 /* Photos */,
 				91B802F92AE99D6100FCCA43 /* Camera */,
+				91A3A0C02AF427D200CF6479 /* Settings */,
 				91B802FA2AE99D8300FCCA43 /* Experiment */,
 				913F2D282ABF65FA00F15632 /* Preview Content */,
 			);
@@ -151,6 +154,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91A3A0C02AF427D200CF6479 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				91A3A0C12AF427EA00CF6479 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		91B802F82AE99D4600FCCA43 /* Photos */ = {
@@ -326,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A3A0C22AF427EA00CF6479 /* SettingsView.swift in Sources */,
 				9196056F2AC35FBE004B2F3C /* MirroredView.swift in Sources */,
 				91FA17D22ACF3184009767BB /* PhotoSelector.swift in Sources */,
 				91B802F72AE99C1E00FCCA43 /* CameraModel.swift in Sources */,

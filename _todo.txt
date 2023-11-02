@@ -1,10 +1,14 @@
-* Show more of the picture by taking the pie width into account - make it go 0-100% in the x axis based on image width - pie width
-
-* Taking a picture should only let you tap on kaleidoscope image (not white space around it)
-
-* Put captured images in their own album
+* Setting for # of segments
 
 * Settings
+
+* Shut off camera when entering background - appears to be done automatically
+  + https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-when-your-app-moves-to-the-background-or-foreground-with-scenephase
+
+* Put captured images in their own album -  see PHPhotoLibrary eg https://developer.apple.com/documentation/photokit/browsing_and_modifying_photo_albums
+
+* Show more of the picture by taking the pie width into account - make it go 0-100% in the x axis based on image width - pie width
+
 
 * Repeated images - not just a single circle's worth
 * https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear
@@ -13,7 +17,12 @@
 
 * Put app on the app store
 
-KAL-23-16: 2023/11/01 - SwiftLint
+KAL-23-16: 2023/11/02 - Wrapping Up (for now)
+* Taking a picture should only let you tap on kaleidoscope image (not white space around it)
+* Spiked showing more of picture but structure of app doesn't make Pie size available when we need it. (V2?)
+* Spiked putting captured images in their own album - more work than we wanted for now. (V2?)
+
+KAL-23-15: 2023/11/01 - SwiftLint
 * Check SwiftLint violations; make sure to check tests too
 * Rotation at 0/360 has a jump - made x oscillate back and forth between 0 and half the width (so pie can't actually reach the far right)
 * Parameterize tests

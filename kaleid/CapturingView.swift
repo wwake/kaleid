@@ -26,6 +26,7 @@ struct CapturingView<Content: View>: View {
       GeometryReader { reader in
         content
           .accessibilityAddTraits(.isButton)
+          .contentShape(Circle())
           .onTapGesture {
             capture(content.frame(width: reader.size.width, height: reader.size.width))
             // swiftlint:disable multiline_arguments
@@ -60,7 +61,6 @@ struct CapturingView<Content: View>: View {
       CaptureImage($showSaveMessage, $saveMessage).write(uiImage)
       AudioServicesPlaySystemSound(shutterSound)
       captured = Image(uiImage: uiImage) // swiftlint:disable:this accessibility_label_for_image
-
     }
   }
 }

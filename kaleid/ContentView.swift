@@ -2,7 +2,7 @@ import CoreMotion
 import SwiftUI
 
 enum ActiveTab: Hashable {
-  case photo, camera, experiment
+  case photo, camera, settings, experiment
 }
 
 struct ContentView: View {
@@ -24,6 +24,12 @@ struct ContentView: View {
             Label("Photos", systemImage: "photo")
           }
           .tag(ActiveTab.photo)
+
+        SettingsView()
+          .tabItem {
+            Label("Settings", systemImage: "slider.horizontal.3")
+          }
+        .tag(ActiveTab.settings)
 
         ExperimentView(angle: angle)
           .tabItem {
