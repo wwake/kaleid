@@ -29,6 +29,7 @@ struct CapturingView<Content: View>: View {
           .contentShape(Circle())
           .onTapGesture {
             capture(content.frame(width: reader.size.width, height: reader.size.width))
+
             // swiftlint:disable multiline_arguments
             withAnimation(.linear(duration: 1.0), completionCriteria: .removed) {
               scale = 0.1
