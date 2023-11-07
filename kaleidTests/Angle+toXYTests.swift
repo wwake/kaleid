@@ -3,6 +3,18 @@ import EGTest
 import SwiftUI
 import XCTest
 
+public func EGAssertEqual<T: Equatable, Input>(_ actual: T, _ expected: EG<Input, T>, accuracy: T)
+    where T: FloatingPoint {
+  XCTAssertEqual(
+    actual,
+    expected.expect,
+    accuracy: accuracy,
+    expected.msg(),
+    file: expected.file,
+    line: expected.line
+  )
+}
+
 @MainActor
 final class ToPositiveRadiansTests: XCTestCase {
   private let fuzz = 0.00001
@@ -18,7 +30,7 @@ final class ToPositiveRadiansTests: XCTestCase {
       EG(-pi / 2, expect: 3 * pi / 2, "negative to positive")
     ) {
       let radians = Angle.radians($0.input).toPositiveRadians
-      XCTAssertEqual(radians, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
+      EGAssertEqual(radians, $0, accuracy: fuzz)
     }
   }
 }
@@ -38,7 +50,7 @@ final class ToXOffsetTests: XCTestCase {
       EG(7.0 * .pi / 4.0, expect: 12.5, "7*pi/4 => 1/4 x")
     ) {
       let x = Angle.radians($0.input).toXOffset(CGSize(width: 100.0, height: 200.0))
-      XCTAssertEqual(x, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
+      EGAssertEqual(x, $0, accuracy: fuzz)
     }
   }
 }
@@ -56,7 +68,7 @@ final class ToYOffsetTests: XCTestCase {
       EG(-.pi / 2.0, expect: -100.0, "-pi/2 => -1/2 height")
     ) {
       let y = Angle.radians($0.input).toYOffset(CGSize(width: 100.0, height: 200.0), repeats: 1)
-      XCTAssertEqual(y, $0.expect, accuracy: fuzz, file: $0.file, line: $0.line)
+      EGAssertEqual(y, $0, accuracy: fuzz)
     }
   }
 
