@@ -3,18 +3,6 @@ import EGTest
 import SwiftUI
 import XCTest
 
-public func EGAssertEqual<T: Equatable, Input>(_ actual: T, _ expected: EG<Input, T>, accuracy: T)
-    where T: FloatingPoint {
-  XCTAssertEqual(
-    actual,
-    expected.expect,
-    accuracy: accuracy,
-    expected.msg(),
-    file: expected.file,
-    line: expected.line
-  )
-}
-
 @MainActor
 final class ToPositiveRadiansTests: XCTestCase {
   private let fuzz = 0.00001
